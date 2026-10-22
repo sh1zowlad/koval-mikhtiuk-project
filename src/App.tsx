@@ -2,7 +2,6 @@ import React, { useState, Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { HeroSection } from './components/HeroSection';
-import { CurriculumOverview } from './components/CurriculumOverview';
 import { Footer } from './components/Footer';
 import { PlantModal } from './components/PlantModal';
 import { PageLayout } from './components/PageLayout';
@@ -58,12 +57,7 @@ export const App: React.FC = () => {
               {/* PILLAR 01 — HOME // CINEMATIC HERO & 3D MASTER GARDEN */}
               <Route
                 path="/"
-                element={
-                  <>
-                    <HeroSection onSelectPlant={handleSelectPlant} />
-                    <CurriculumOverview />
-                  </>
-                }
+                element={<HeroSection onSelectPlant={handleSelectPlant} />}
               />
 
               {/* PILLAR 02 — COMPOSITION & COLOR THEORY */}
