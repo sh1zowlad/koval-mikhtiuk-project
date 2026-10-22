@@ -72,32 +72,7 @@ export const RetainingWallSection: React.FC<RetainingWallSectionProps> = ({ onSe
             Підпірна стінка — це найвідповідальніша споруда в саду. Вона працює проти гравітації, тримаючи масу насипного схилу, і водночас стає теплим кам'яним скелетом для каскадних настінних рослин.
           </p>
 
-          {/* Key Indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Кугельпанцер (ухил)</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">5° – 8° у схил</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Компенсація перекидального моменту</div>
-            </div>
 
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Глибина підошви</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">1/3 висоти стіни</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Обов'язкове заглиблення фундаменту</div>
-            </div>
-
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Дренажна призма</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">30 – 40 см щебеню</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Фракція 20–40 мм за стінкою</div>
-            </div>
-
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Водовідведення</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">Труба Ø110 мм</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Перфорована труба з ухилом 1–2%</div>
-            </div>
-          </div>
         </div>
 
         {/* SECTION 1: 3D X-RAY RETAINING WALL SIMULATOR */}

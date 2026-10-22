@@ -65,32 +65,7 @@ export const ColorLaboratory: React.FC<ColorLaboratoryProps> = ({ onSelectPlant 
             У природному дизайні колір ніколи не розглядається як статична фарба на стіні. Це динамічний часовий вектор: забарвлення змінюється щотижня від ніжних весняних пагонів до літніх суцвіть, осінньої міді та графічної зимової монохромії.
           </p>
 
-          {/* Key Indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Фонове полотно</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">40 Відтінків зеленого</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Хвоя, листя та стебла трав</div>
-            </div>
 
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Роль квітки</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">Тимчасовий акцент</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Цвітіння триває 2–4 тижні</div>
-            </div>
-
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Оптична перспектива</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">Холодні тони вглиб</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Збільшують відчуття простору</div>
-            </div>
-
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Сезонний інтерес</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">365 Днів на рік</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Краса розпаду та зимовий іній</div>
-            </div>
-          </div>
         </div>
 
         {/* SECTION 1: 6 PALETTES INTERACTIVE LABORATORY */}

@@ -56,32 +56,7 @@ export const AlpineGardenSection: React.FC<AlpineGardenSectionProps> = ({ onSele
             Справжній альпінарій — це не штучна насипна гірка, а філігранна реконструкція гірського екотону. Тут панує мінеральний скелет, абсолютний дренаж та рослини-подушки, адаптовані до екстремального сонця і вітрів.
           </p>
 
-          {/* Key Engineering Indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Кут залягання каменю</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">15° – 20° у схил</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Імітація природного тектонічного пласта</div>
-            </div>
 
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Дренажний шар</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">30 – 50 см</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Фракція щебеню 20–40 мм</div>
-            </div>
-
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Субстрат для коренів</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">60% гравій / 40% ґрунт</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Нульовий застій ґрунтової вологи</div>
-            </div>
-
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Порода каменю</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">100% монопорода</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Вапняк або пісковик без змішування</div>
-            </div>
-          </div>
         </div>
 
         {/* SECTION 1: 3D INTERACTIVE SHOWCASE & STYLE MORPHER */}

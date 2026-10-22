@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getModuleByPath, getPrevNextModules } from '../data/courseModules';
-import { ArrowLeft, ArrowRight, Home, Compass } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Home } from 'lucide-react';
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -95,13 +95,13 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
               </Link>
             )}
 
-            {/* Center Index Pill */}
+            {/* Center Home Link */}
             <Link
               to="/"
               className="text-xs font-mono text-[#D6D0C3] hover:text-[#F4F0E6] flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 hover:border-white/30 transition-all"
             >
-              <Compass className="w-4 h-4 text-[#AD765B]" />
-              <span>Огляд програми саду</span>
+              <Home className="w-4 h-4 text-[#AD765B]" />
+              <span>Головна 3D</span>
             </Link>
 
             {/* Next Module Button */}

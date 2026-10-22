@@ -53,29 +53,7 @@ export const MaintenanceCalendar: React.FC = () => {
             </div>
           </div>
 
-          {/* Key Indicators Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-            <div className="p-4 rounded-xl bg-[#FAF8F3] border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase tracking-wider text-[#64765A]">Річний цикл</div>
-              <div className="text-2xl font-mono font-bold text-[#182C24] mt-1">365 днів</div>
-              <p className="text-[11px] text-[#64765A] mt-1">Безперервна всесезонна декоративність</p>
-            </div>
-            <div className="p-4 rounded-xl bg-[#FAF8F3] border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase tracking-wider text-[#64765A]">Трудовитрати</div>
-              <div className="text-2xl font-mono font-bold text-[#AD765B] mt-1">&lt; 3 год/тижд</div>
-              <p className="text-[11px] text-[#64765A] mt-1">Вчетверо менше за класичний партерний газон</p>
-            </div>
-            <div className="p-4 rounded-xl bg-[#FAF8F3] border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase tracking-wider text-[#64765A]">Фенофази</div>
-              <div className="text-2xl font-mono font-bold text-[#182C24] mt-1">4 сезони</div>
-              <p className="text-[11px] text-[#64765A] mt-1">Синхронізація з біологічним годинником</p>
-            </div>
-            <div className="p-4 rounded-xl bg-[#FAF8F3] border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase tracking-wider text-[#64765A]">Екологічність</div>
-              <div className="text-2xl font-mono font-bold text-[#64765A] mt-1">100% Bio</div>
-              <p className="text-[11px] text-[#64765A] mt-1">Нуль синтетичних пестицидів</p>
-            </div>
-          </div>
+
         </div>
 
         {/* STEWARDSHIP PHILOSOPHY DOSSIER */}

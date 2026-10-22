@@ -80,32 +80,7 @@ export const TransitionComparison: React.FC = () => {
             У природі не буває прямокутних меж. Ліс не врізається в луку стіною — між ними завжди існує узлісся. Ландшафтний архітектор створює саме такі м'які перехідні зони, розмиваючи кордони між рукотворним і природним.
           </p>
 
-          {/* Metric Indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Ширина екотону</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">1.2 – 2.5 метра</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Оптимальний буферний градієнт</div>
-            </div>
 
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Крок ярусності</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">1 : 2.5 коефіцієнт</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Висота кожного наступного ярусу</div>
-            </div>
-
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Пом'якшення крайок</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">100% перелив рослин</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Нависання над мощенням і мурами</div>
-            </div>
-
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Стійкість системи</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">-90% бур'янів</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Завдяки щільному змиканню листя</div>
-            </div>
-          </div>
         </div>
 
         {/* SECTION 1: INTERACTIVE BEFORE/AFTER SLIDER */}

@@ -133,32 +133,7 @@ export const ClimbingPlantsSection: React.FC<ClimberSectionProps> = ({ onSelectP
             Вертикальні поверхні володіють найбільшим потенціалом у компактних садах. Ліани перетворюють глухі огорожі та стіни будинків на багатошарові живі завіси, захищаючи фасад від перегріву влітку та створюючи камерний затишок.
           </p>
 
-          {/* Key Indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Сезонна динаміка</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">4 Різні фази</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Зміна вигляду весна / зима</div>
-            </div>
 
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Навантаження на шпалеру</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">До 80 кг / м²</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Вага мокрої від дощу лози</div>
-            </div>
-
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Вентиляція фасаду</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">10 см зазор</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Відступ шпалери від стіни будинку</div>
-            </div>
-
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Терморегуляція</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">-4°C влітку</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Природне охолодження стін тінню</div>
-            </div>
-          </div>
         </div>
 
         {/* SECTION 1: 3D INTERACTIVE SEASON & SPECIES SIMULATOR */}

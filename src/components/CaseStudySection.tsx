@@ -45,32 +45,7 @@ export const CaseStudySection: React.FC = () => {
             Детальний інженерно-ботанічний розбір реалізованого проекту ділянки 450 м² у субальпійській зоні. Поєднання терасування схилу, прихованого дренажу, 4-ярусного озеленення та збереження природного генія місця (Genius Loci).
           </p>
 
-          {/* Key Indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Площа об'єкта</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">450 м²</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">{CASE_STUDY_DATA.location}</div>
-            </div>
 
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Природний ухил</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">22° (перепад 4.2 м)</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Південно-західна сонячна експозиція</div>
-            </div>
-
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Етапи втілення</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">8 Інженерних фаз</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Від топозйомки до посадки</div>
-            </div>
-
-            <div className="p-4 bg-white/5 rounded-2xl border border-[#A7B39A]/20">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Бюджетний баланс</div>
-              <div className="text-xl font-serif font-bold text-[#F4F0E6] mt-0.5">60% стіни / 40% флора</div>
-              <div className="text-[11px] text-[#A7B39A] mt-1">Пріоритет надійності терасування</div>
-            </div>
-          </div>
         </div>
 
         {/* SECTION 1: INTERACTIVE SITE PLAN BLUEPRINT */}

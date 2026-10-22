@@ -1,20 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Compass, ArrowUp, Sparkles } from 'lucide-react';
-import { COURSE_MODULES } from '../data/courseModules';
+import { Compass, ArrowUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const navLinks = [
+    { path: '/', label: 'Головна 3D' },
+    { path: '/composition', label: 'Теорія та Композиція' },
+    { path: '/spaces-3d', label: '3D Інженерні Простори' },
+    { path: '/atlas', label: 'Ботанічний Атлас & Фенологія' },
+    { path: '/studio', label: 'Проєктна Студія & Кейс' },
+  ];
+
   return (
-    <footer className="bg-[#122019] text-[#F4F0E6] pt-16 pb-12 px-4 sm:px-6 lg:px-8 border-t border-[#A7B39A]/20">
-      <div className="max-w-7xl mx-auto space-y-12">
-        {/* Top Studio Row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 border-b border-[#A7B39A]/20 pb-10">
-          {/* Brand & Mission (5 cols) */}
-          <div className="md:col-span-5 space-y-4">
+    <footer className="bg-[#122019] text-[#F4F0E6] pt-14 pb-10 px-4 sm:px-6 lg:px-8 border-t border-[#A7B39A]/20">
+      <div className="max-w-7xl mx-auto space-y-10">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-b border-[#A7B39A]/20 pb-8">
+          {/* Brand & Studio Mission */}
+          <div className="space-y-3 max-w-lg">
             <Link to="/" className="flex items-center gap-2.5 group">
               <span className="w-8 h-8 rounded-full bg-[#64765A] border border-[#A7B39A]/60 flex items-center justify-center text-[#F4F0E6] group-hover:bg-[#AD765B] transition-colors">
                 <Compass className="w-4 h-4" />
@@ -26,69 +32,41 @@ export const Footer: React.FC = () => {
                 </span>
               </div>
             </Link>
-
-            <p className="text-xs sm:text-sm text-[#D6D0C3] leading-relaxed max-w-md font-light">
-              Авторська цифрова монографія та інтерактивна студія ландшафтної архітектури. Дослідження матричних природних композицій, альпійських біотопів, підпірних стін та колористичних гармоній.
+            <p className="text-xs sm:text-sm text-[#D6D0C3] leading-relaxed font-light">
+              Авторське дослідження природної композиції, геології альпінаріїв, гравітаційних підпірних стін та взаємодії рослин і простору.
             </p>
           </div>
 
-          {/* Navigation Directory (4 cols) */}
-          <div className="md:col-span-4 space-y-3">
-            <span className="text-[10px] font-mono uppercase tracking-widest text-[#AD765B] block">
-              Розділи архітектурного проєкту
-            </span>
-            <div className="space-y-2 text-xs font-mono text-[#D6D0C3]">
-              {COURSE_MODULES.map(m => (
-                <Link
-                  key={m.id}
-                  to={m.path}
-                  className="hover:text-[#F4F0E6] transition-colors flex items-center justify-between group"
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="text-[#A7B39A] text-[10px]">0{m.number}.</span>
-                    <span className="group-hover:text-white transition-colors">{m.title}</span>
-                  </div>
-                  {m.badge && (
-                    <span className="text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-[#A7B39A]">
-                      {m.badge}
-                    </span>
-                  )}
-                </Link>
-              ))}
-            </div>
-          </div>
+          {/* Clean Navigation Links (5 Main Pillars) */}
+          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-mono text-[#D6D0C3]">
+            {navLinks.map((item, idx) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className="hover:text-[#F4F0E6] transition-colors flex items-center gap-1.5"
+              >
+                <span className="text-[#AD765B]">0{idx + 1}.</span>
+                <span>{item.label}</span>
+              </Link>
+            ))}
+          </nav>
 
-          {/* Actions & Scroll to top (3 cols) */}
-          <div className="md:col-span-3 space-y-3 flex flex-col justify-between">
-            <Link
-              to="/studio"
-              className="p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-[#A7B39A]/30 flex items-center justify-between text-xs font-mono transition-colors group"
-            >
-              <div className="text-left">
-                <span className="block text-[#F4F0E6] font-semibold">Проєктна Студія</span>
-                <span className="block text-[10px] text-[#A7B39A]">3D макетування & генеральний план</span>
-              </div>
-              <Sparkles className="w-4 h-4 text-[#AD765B]" />
-            </Link>
-
+          {/* Scroll to Top */}
+          <div className="shrink-0">
             <button
               onClick={scrollToTop}
-              className="py-2.5 px-4 rounded-xl bg-[#182C24] hover:bg-[#64765A] border border-[#A7B39A]/30 text-xs font-mono text-[#F4F0E6] flex items-center justify-center gap-2 transition-colors"
+              className="py-2.5 px-4 rounded-full bg-white/5 hover:bg-[#64765A] border border-[#A7B39A]/30 text-xs font-mono text-[#F4F0E6] flex items-center gap-2 transition-colors"
             >
               <ArrowUp className="w-3.5 h-3.5" />
-              <span>Повернутися вгору</span>
+              <span>Вгору</span>
             </button>
           </div>
         </div>
 
-        {/* Minimal Copyright Row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#A7B39A]/80">
-          <div>
-            © 2026 KOVAL MIKHTIUK PROJECT. Всі права захищено.
-          </div>
-          <div className="text-[11px] text-[#A7B39A]/60">
-            Ландшафтна архітектура // 3D WebGL // Ботаніка
-          </div>
+        {/* Minimal Copyright */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#A7B39A]/70">
+          <div>© 2026 KOVAL MIKHTIUK PROJECT. Всі права захищено.</div>
+          <div className="text-[11px]">Ландшафтна архітектура // 3D WebGL // Сталий фітодизайн</div>
         </div>
       </div>
     </footer>

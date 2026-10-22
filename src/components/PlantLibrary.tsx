@@ -73,29 +73,7 @@ export const PlantLibrary: React.FC<PlantLibraryProps> = ({ onSelectPlant }) => 
             </div>
           </div>
 
-          {/* Key Indicators Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-            <div className="p-4 rounded-xl bg-[#1F2922] border border-[#A7B39A]/30">
-              <div className="text-[10px] font-mono uppercase tracking-wider text-[#A7B39A]">База рослин</div>
-              <div className="text-2xl font-mono font-bold text-[#F4F0E6] mt-1">{PLANTS_DATABASE.length} таксонів</div>
-              <p className="text-[11px] text-[#A7B39A]/80 mt-1">Повні морфометричні досьє</p>
-            </div>
-            <div className="p-4 rounded-xl bg-[#1F2922] border border-[#A7B39A]/30">
-              <div className="text-[10px] font-mono uppercase tracking-wider text-[#A7B39A]">Кліматична зона</div>
-              <div className="text-2xl font-mono font-bold text-[#AD765B] mt-1">USDA 4–7</div>
-              <p className="text-[11px] text-[#A7B39A]/80 mt-1">100% морозостійкість в Україні</p>
-            </div>
-            <div className="p-4 rounded-xl bg-[#1F2922] border border-[#A7B39A]/30">
-              <div className="text-[10px] font-mono uppercase tracking-wider text-[#A7B39A]">Біотопні ніші</div>
-              <div className="text-2xl font-mono font-bold text-[#F4F0E6] mt-1">8 категорій</div>
-              <p className="text-[11px] text-[#A7B39A]/80 mt-1">Від скель до вологих низин</p>
-            </div>
-            <div className="p-4 rounded-xl bg-[#1F2922] border border-[#A7B39A]/30">
-              <div className="text-[10px] font-mono uppercase tracking-wider text-[#A7B39A]">Сезонна динаміка</div>
-              <div className="text-2xl font-mono font-bold text-[#64765A] mt-1">365 днів</div>
-              <p className="text-[11px] text-[#A7B39A]/80 mt-1">Зимова архітектурна структура</p>
-            </div>
-          </div>
+
         </div>
 
         {/* SCIENTIFIC CURATION DOSSIER */}

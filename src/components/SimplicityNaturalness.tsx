@@ -92,32 +92,7 @@ export const SimplicityNaturalness: React.FC = () => {
             Справжній природний сад виникає не тоді, коли більше нічого додати, а тоді, коли більше нічого не можна забрати без шкоди для цілісності середовища. Це відмова від штучної строкатості на користь спокійної сили дикої природи.
           </p>
 
-          {/* Key Indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Матрична основа</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">70% площі</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Трави, злаки та ґрунтопокривні</div>
-            </div>
 
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Структурні квіти</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">20% площі</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Шавлія, ехінацея, монарда</div>
-            </div>
-
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Колористичні спалахи</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">10% площі</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Короткі сезонні акценти</div>
-            </div>
-
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Ліміт асортименту</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">7 – 9 видів</div>
-              <div className="text-[11px] text-[#64765A] mt-1">На 100 м² квітника</div>
-            </div>
-          </div>
         </div>
 
         {/* SECTION 1: THE 70/20/10 FORMULA */}

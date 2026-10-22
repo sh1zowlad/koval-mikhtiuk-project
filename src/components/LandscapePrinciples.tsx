@@ -1,119 +1,105 @@
 import React, { useState } from 'react';
 import { PRINCIPLES_DATABASE } from '../data/principlesData';
 import { LandscapePrinciple } from '../types/landscape';
-import { Crosshair, AlertOctagon, Layers, Sparkles } from 'lucide-react';
+import { Crosshair, ArrowRight, Sparkles } from 'lucide-react';
 
 export const LandscapePrinciples: React.FC = () => {
   const [selectedPrinciple, setSelectedPrinciple] = useState<LandscapePrinciple>(PRINCIPLES_DATABASE[0]);
 
   const architecturalLayers = [
     {
-      name: 'Передній план // Авансцена',
-      depth: '0 – 3 метри від спостерігача',
-      height: '5 – 30 см (Килимові сукуленти, чебрець, гравій)',
-      purpose: 'Забезпечує відкритий партер, не затуляє горизонт, затягує погляд всередину саду через фактурну зернистість.'
+      step: '01',
+      title: 'Передній план // Авансцена',
+      range: '0 – 3 м від спостерігача',
+      height: '5 – 30 см',
+      species: 'Килимові сукуленти, чебрець, гравійна відсипка',
+      desc: 'Відкритий партер, що не затуляє перспективу. Затягує погляд всередину саду через дрібну фактуру та текстурну зернистість.'
     },
     {
-      name: 'Середній план // Сцена активності',
-      depth: '3 – 8 метрів',
-      height: '40 – 110 см (Шавлія, ехінацея, ковила, сеслерія)',
-      purpose: 'Основне тіло матричної посадки. Створює просторовий рух хвилями злаків, містить головні колористичні акценти.'
+      step: '02',
+      title: 'Середній план // Сцена активності',
+      range: '3 – 8 м глибини',
+      height: '40 – 110 см',
+      species: 'Шавлія дібровна, ехінацея, ковила, сеслерія',
+      desc: 'Основне тіло матричної посадки. Створює просторовий рух хвилями злаків, містить головні колористичні та сезонні акценти.'
     },
     {
-      name: 'Задній план // Живі куліси',
-      depth: '8 – 20+ метрів',
-      height: '1.5 – 6 метрів (Підпірні мури, берези, сосни, ліани)',
-      purpose: 'Формує просторову межу ділянки, оптично віддаляє горизонт, забезпечує відчуття захищеності (Genius Loci).'
+      step: '03',
+      title: 'Задній план // Живі куліси',
+      range: '8 – 20+ м глибини',
+      height: '1.5 – 6 м',
+      species: 'Підпірні мури, скельні сосни, граби, ліани',
+      desc: 'Формує архітектурну межу простору, оптично віддаляє лінію горизонту, створює відчуття захищеності та Genius Loci.'
     },
     {
-      name: 'Фокусна вертикаль // Скульптурний якір',
-      depth: 'Точка максимальної візуальної ваги',
-      height: 'Домінанта композиції (Солітер або скельний валун)',
-      purpose: 'Організовує навколо себе все середовище. Притягує погляд і створює миттєву орієнтацію в тривимірному просторі.'
+      step: '04',
+      title: 'Фокусна вертикаль // Скульптурний якір',
+      range: 'Видова точка тяжіння',
+      height: 'Домінанта композиції',
+      species: 'Солітерна сосна, масивний тектонічний валун',
+      desc: 'Організовує навколо себе все оптичне поле. Притягує погляд і створює миттєву тривимірну орієнтацію на ділянці.'
     }
   ];
 
-  const commonMistakes = [
+  const fieldNotes = [
     {
-      mistake: 'Каталожний хаос («По одній рослині кожного сорту»)',
-      fix: 'Матрична посадка блоками: мінімум 5–7 екземплярів одного виду у взаємопроникних куртинах.'
+      num: '01',
+      mistake: 'Каталожний хаос («по одній рослині кожного сорту»)',
+      fix: 'Матрична посадка взаємопроникними масивами: мінімум 5–7 екземплярів одного виду у природних куртинах.'
     },
     {
-      mistake: 'Прямолінійне висаджування за лінійкою вздовж паркану',
-      fix: 'Хвилеподібна ярусна розмивка з «кишенями» глибини та виступами назустріч доріжці.'
+      num: '02',
+      mistake: 'Прямолінійне висаджування за лінійкою вздовж межі ділянки',
+      fix: 'Хвилеподібна ярусна розмивка з глибокими рослинними кишенями та виступами назустріч видовій доріжці.'
     },
     {
-      mistake: 'Відсутність негативного простору (перевантаження ділянки)',
-      fix: 'Свідоме збереження пауз: гравійні галявини, площини низького газону чи спокійні водні дзеркала.'
+      num: '03',
+      mistake: 'Відсутність негативного простору та тотальне засадження',
+      fix: 'Свідоме збереження пауз: мінімум 30% вільного простору — гравійні галявини, низькі трав\'яні килими чи гладінь води.'
     },
     {
-      mistake: 'Центральна симетрія на складному рельєфі',
-      fix: 'Динамічна асиметрія: врівноваження важкої кам\'яної стіни масивом легких повітряних злаків.'
+      num: '04',
+      mistake: 'Штучна симетрія та дзеркальне планування на складному рельєфі',
+      fix: 'Динамічна асиметрія: врівноваження важкої кам\'яної підпірної стіни протилежним масивом повітряних злакових хвиль.'
     }
   ];
 
   return (
-    <div className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#F4F0E6] text-[#262925]">
-      <div className="max-w-7xl mx-auto space-y-16">
+    <div className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#FAF8F3] text-[#262925]">
+      <div className="max-w-7xl mx-auto space-y-20">
         
-        {/* CHAPTER HERO HEADER */}
-        <div className="border-b border-[#A7B39A]/60 pb-10">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#64765A] mb-3">
-            <span className="px-2 py-0.5 bg-[#EAE4D5] rounded text-[#182C24] font-semibold">Глава 02</span>
+        {/* EDITORIAL CHAPTER HEADER — NO AI METRIC CARDS */}
+        <div className="border-b border-[#D6D0C3] pb-12">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#64765A] mb-4">
+            <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
+            <span>Архітектурна теорія</span>
             <span>//</span>
-            <span>Теорія ландшафтної архітектури</span>
+            <span>Граматика простору</span>
           </div>
           
-          <h1 className="text-4xl sm:text-6xl font-serif font-bold text-[#182C24] leading-tight">
+          <h1 className="text-4xl sm:text-6xl font-serif font-bold text-[#182C24] leading-[1.1] max-w-4xl">
             Граматика простору: <br />
             <span className="italic font-normal text-[#64765A]">Мистецтво природної композиції.</span>
           </h1>
 
-          <p className="mt-4 text-base sm:text-xl text-[#64765A] max-w-3xl leading-relaxed font-light">
-            Природна композиція — це не хаос і не штучна симетрія Версалю. Це кристалізація законів природи: взаємопроникнення мас, динамічна рівновага, гра тіні та світла і безпомилковий вибір домінант.
+          <p className="mt-6 text-lg sm:text-xl text-[#262925]/85 max-w-3xl leading-relaxed font-light font-sans">
+            Природна композиція — це не хаос і не штучна симетрія Версалю. Це кристалізація законів природи: взаємопроникнення мас, динамічна рівновага без дзеркальності, гра світлотіні та безпомилковий вибір скульптурних домінант.
           </p>
-
-          {/* Key Architectural Metric Badges */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Баланс мас</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">Динамічна асиметрія</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Рівновага без дзеркальності</div>
-            </div>
-
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Глибина сцени</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">4 Яруси глибини</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Від авансцени до куліс</div>
-            </div>
-
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Фокусний якір</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">Правило третин</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Один солітер на видову вісь</div>
-            </div>
-
-            <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3]">
-              <div className="text-[10px] font-mono uppercase text-[#AD765B] tracking-wider">Порожнеча</div>
-              <div className="text-xl font-serif font-bold text-[#182C24] mt-0.5">30% Паузи</div>
-              <div className="text-[11px] text-[#64765A] mt-1">Негативний простір для очей</div>
-            </div>
-          </div>
         </div>
 
-        {/* SECTION 1: INTERACTIVE SPATIAL ANALYZER SCHEMATIC */}
-        <div className="space-y-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        {/* SECTION 1: INTERACTIVE SPATIAL ANALYZER */}
+        <div className="space-y-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#D6D0C3] pb-6">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
-                Інтерактивна схема // 10 Законів композиції
+                Інтерактивна схема // 10 Законів
               </span>
               <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24] mt-1">
                 Дослідження композиційної сітки ділянки
               </h2>
             </div>
-            <p className="text-xs sm:text-sm text-[#64765A] max-w-md">
-              Оберіть будь-який із 10 принципів нижче, щоб побачити точну візуальну координату на генеральному плані та фаховий розбір.
+            <p className="text-xs sm:text-sm text-[#64765A] max-w-md font-sans">
+              Оберіть принцип зі списку праворуч, щоб побачити його координату на генеральному плані та архітектурне обґрунтування.
             </p>
           </div>
 
@@ -150,120 +136,124 @@ export const LandscapePrinciples: React.FC = () => {
                     r="8" 
                     fill="none" 
                     stroke="#AD765B" 
-                    strokeWidth="1.8" 
-                    strokeDasharray="2, 2" 
-                    className="animate-spin"
-                    style={{ transformOrigin: `${selectedPrinciple.visualTarget.x}px ${selectedPrinciple.visualTarget.y}px` }}
+                    strokeWidth="1.5" 
+                    className="animate-ping"
                   />
                   <circle 
                     cx={selectedPrinciple.visualTarget.x} 
                     cy={selectedPrinciple.visualTarget.y} 
-                    r="3" 
+                    r="4" 
                     fill="#AD765B" 
+                  />
+                  <line 
+                    x1={selectedPrinciple.visualTarget.x} 
+                    y1={selectedPrinciple.visualTarget.y - 8} 
+                    x2={selectedPrinciple.visualTarget.x} 
+                    y2={selectedPrinciple.visualTarget.y + 8} 
+                    stroke="#F4F0E6" 
+                    strokeWidth="1" 
+                  />
+                  <line 
+                    x1={selectedPrinciple.visualTarget.x - 8} 
+                    y1={selectedPrinciple.visualTarget.y} 
+                    x2={selectedPrinciple.visualTarget.x + 8} 
+                    y2={selectedPrinciple.visualTarget.y} 
+                    stroke="#F4F0E6" 
+                    strokeWidth="1" 
                   />
                 </svg>
 
-                {/* Top Annotation Tag */}
-                <div className="relative z-10 flex items-center justify-between text-xs font-mono text-[#F4F0E6] bg-[#182C24]/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#A7B39A]/30">
-                  <span className="flex items-center gap-1.5">
-                    <Crosshair className="w-3.5 h-3.5 text-[#AD765B]" />
-                    <span>Фокусна точка принципу</span>
-                  </span>
-                  <span className="text-[#A7B39A]">X:{selectedPrinciple.visualTarget.x}% | Y:{selectedPrinciple.visualTarget.y}%</span>
+                {/* Tactical Top Bar */}
+                <div className="relative z-10 flex items-center justify-between text-xs font-mono text-[#A7B39A] bg-[#182C24]/80 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/10">
+                  <div className="flex items-center gap-2">
+                    <Crosshair className="w-4 h-4 text-[#AD765B]" />
+                    <span className="uppercase tracking-wider">Координати: X:{selectedPrinciple.visualTarget.x}% Y:{selectedPrinciple.visualTarget.y}%</span>
+                  </div>
+                  <span className="text-[#F4F0E6] font-semibold">{selectedPrinciple.title}</span>
                 </div>
 
-                {/* Bottom Target Callout Card */}
-                <div className="relative z-10 bg-[#182C24]/90 backdrop-blur-md p-4 rounded-xl border border-[#AD765B]/80 shadow-lg">
-                  <div className="text-[10px] font-mono uppercase tracking-wider text-[#AD765B] mb-0.5">
-                    Зона застосування // #{selectedPrinciple.number}
-                  </div>
-                  <div className="text-base font-serif font-bold text-[#F4F0E6]">
-                    {selectedPrinciple.visualTarget.label}
-                  </div>
-                  <div className="text-xs text-[#D6D0C3] mt-1 leading-relaxed">
-                    Зверніть увагу, як маса, лінія та негативний простір скеровують погляд спостерігача в цій зоні.
-                  </div>
+                {/* Bottom Legend */}
+                <div className="relative z-10 flex flex-wrap gap-2 text-[11px] font-mono text-[#D6D0C3] bg-[#182C24]/90 p-3 rounded-xl border border-white/10">
+                  <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-[#1F3F29]" /> Солітер</span>
+                  <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-[#8C887E]" /> Камінь</span>
+                  <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-[#7C89B8]" /> Матриця злаків</span>
+                  <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-[#B8B0A2]" /> Стінка</span>
                 </div>
               </div>
 
-              {/* 10 Principle Pills Grid */}
-              <div className="flex flex-wrap gap-1.5">
-                {PRINCIPLES_DATABASE.map(p => {
-                  const isSelected = p.id === selectedPrinciple.id;
-                  return (
-                    <button
-                      key={p.id}
-                      onClick={() => setSelectedPrinciple(p)}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
-                        isSelected
-                          ? 'bg-[#182C24] text-[#F4F0E6] font-semibold shadow-sm'
-                          : 'bg-[#FAF8F3] hover:bg-[#EAE4D5] text-[#262925] border border-[#D6D0C3]'
-                      }`}
-                    >
-                      <span className="opacity-60 mr-1">{p.number}</span>
-                      {p.title}
-                    </button>
-                  );
-                })}
+              {/* Principle Selector Pill Strip */}
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                {PRINCIPLES_DATABASE.map(p => (
+                  <button
+                    key={p.id}
+                    onClick={() => setSelectedPrinciple(p)}
+                    className={`py-2 px-3 rounded-xl text-xs font-mono transition-all text-left truncate border ${
+                      selectedPrinciple.id === p.id
+                        ? 'bg-[#182C24] text-[#F4F0E6] border-[#182C24] font-semibold shadow-sm'
+                        : 'bg-white hover:bg-[#EAE4D5] text-[#262925] border-[#D6D0C3]'
+                    }`}
+                  >
+                    <span className="opacity-60 mr-1.5 font-bold">{p.number}.</span>
+                    {p.title}
+                  </button>
+                ))}
               </div>
             </div>
 
             {/* Principle Deep Dossier Panel (6 cols) */}
-            <div className="lg:col-span-6 bg-[#FAF8F3] p-6 sm:p-8 rounded-2xl border border-[#D6D0C3] shadow-sm space-y-6">
-              <div className="flex items-center justify-between border-b border-[#D6D0C3]/80 pb-4">
-                <div>
-                  <span className="text-xs font-mono text-[#AD765B] font-bold">
-                    Принцип #{selectedPrinciple.number}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#182C24] mt-0.5">
-                    {selectedPrinciple.title}
-                  </h3>
-                  <div className="text-xs text-[#64765A] font-mono mt-0.5">
-                    {selectedPrinciple.subtitle}
-                  </div>
+            <div className="lg:col-span-6 bg-white p-8 rounded-2xl border border-[#D6D0C3] shadow-sm space-y-6">
+              <div className="border-b border-[#D6D0C3] pb-4">
+                <span className="text-xs font-mono text-[#AD765B] font-bold">
+                  Принцип {selectedPrinciple.number} з 10
+                </span>
+                <h3 className="text-3xl font-serif font-bold text-[#182C24] mt-1">
+                  {selectedPrinciple.title}
+                </h3>
+                <div className="text-xs text-[#64765A] font-mono mt-1">
+                  {selectedPrinciple.subtitle}
                 </div>
               </div>
 
               {/* Definition */}
               <div className="space-y-1.5">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-[#64765A] font-semibold block">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#64765A] font-semibold block">
                   Архітектурне визначення
                 </span>
-                <p className="text-sm text-[#262925] leading-relaxed">
+                <p className="text-base text-[#262925] leading-relaxed font-sans font-light">
                   {selectedPrinciple.definition}
                 </p>
               </div>
 
               {/* Ecological Importance */}
-              <div className="p-4 bg-[#EAE4D5]/60 rounded-xl border border-[#A7B39A]/40 space-y-1">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-[#AD765B] font-bold block flex items-center gap-1.5">
+              <div className="p-5 bg-[#FAF8F3] rounded-xl border-l-2 border-[#AD765B] space-y-1.5">
+                <span className="text-xs font-mono uppercase tracking-wider text-[#AD765B] font-bold block flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5" />
-                  Чому це працює в ландшафті
+                  Чому це працює в живому ландшафті
                 </span>
-                <p className="text-xs text-[#262925] leading-relaxed">
+                <p className="text-sm text-[#262925]/90 leading-relaxed font-sans font-light">
                   {selectedPrinciple.importance}
                 </p>
               </div>
 
               {/* Practical Application */}
               <div className="space-y-1.5">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-[#64765A] font-semibold block">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#64765A] font-semibold block">
                   Практичне втілення на ділянці
                 </span>
-                <p className="text-xs text-[#262925] leading-relaxed">
+                <p className="text-sm text-[#262925]/85 leading-relaxed font-sans font-light">
                   {selectedPrinciple.application}
                 </p>
               </div>
 
               {/* Botanical Examples Chips */}
-              <div className="space-y-2 pt-2 border-t border-[#D6D0C3]/80">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-[#64765A] block">
+              <div className="space-y-2 pt-4 border-t border-[#D6D0C3]">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#64765A] block">
                   Характерні рослинні компоненти
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {selectedPrinciple.botanicalExamples.map((ex, i) => (
-                    <span key={i} className="px-3 py-1 bg-white rounded-full border border-[#D6D0C3] text-xs font-mono text-[#182C24]">
-                      🌿 {ex}
+                    <span key={i} className="px-3.5 py-1 bg-[#FAF8F3] rounded-full border border-[#D6D0C3] text-xs font-mono text-[#182C24]">
+                      {ex}
                     </span>
                   ))}
                 </div>
@@ -272,67 +262,96 @@ export const LandscapePrinciples: React.FC = () => {
           </div>
         </div>
 
-        {/* SECTION 2: 4 ARCHITECTURAL DEPTH LAYERS */}
-        <div className="space-y-6 pt-6 border-t border-[#D6D0C3]">
+        {/* SECTION 2: ARCHITECTURAL DEPTH STRATIGRAPHY (EDITORIAL HORIZONTAL FLOW, NO REPETITIVE CARDS) */}
+        <div className="space-y-8 pt-8 border-t border-[#D6D0C3]">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
               Просторова стратифікація
             </span>
             <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24] mt-1">
-              Чотири плани глибини ландшафтного простору
+              Чотири плани глибини ландшафтної сцени
             </h2>
-            <p className="mt-2 text-sm text-[#64765A] max-w-2xl leading-relaxed">
-              Грамотна ландшафтна сцена ніколи не будується однією суцільною лінією. Вона розгортається шарами — від ніг спостерігача до далеких дерев.
+            <p className="mt-2 text-base text-[#64765A] max-w-3xl leading-relaxed font-light">
+              Ландшафтна перспектива будується як багатошарова просторова партитура — від тактильного переднього плану до горизонту.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {architecturalLayers.map((layer, idx) => (
-              <div key={idx} className="p-6 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3] shadow-sm flex flex-col justify-between space-y-4">
-                <div>
-                  <div className="flex items-center justify-between text-xs font-mono text-[#AD765B] mb-2 font-bold">
-                    <span>План 0{idx + 1}</span>
-                    <Layers className="w-4 h-4 text-[#64765A]" />
+          {/* Clean Horizontal Editorial Stratification */}
+          <div className="divide-y divide-[#D6D0C3] border-t border-b border-[#D6D0C3]">
+            {architecturalLayers.map((layer) => (
+              <div key={layer.step} className="py-6 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-start group">
+                {/* Number & Plan Name (4 cols) */}
+                <div className="md:col-span-4 space-y-1">
+                  <div className="text-xs font-mono text-[#AD765B] font-bold">
+                    ПЛАН // {layer.step}
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-[#182C24]">
-                    {layer.name}
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#182C24]">
+                    {layer.title}
                   </h3>
-                  <div className="text-xs font-mono text-[#64765A] mt-1">
-                    Відстань: {layer.depth}
-                  </div>
-                  <div className="text-xs font-mono text-[#AD765B] mt-0.5">
-                    Висота: {layer.height}
+                  <div className="text-xs font-mono text-[#64765A]">
+                    {layer.range} • {layer.height}
                   </div>
                 </div>
 
-                <p className="text-xs text-[#262925] leading-relaxed pt-3 border-t border-[#D6D0C3]/60">
-                  {layer.purpose}
-                </p>
+                {/* Botanical Species (4 cols) */}
+                <div className="md:col-span-4 text-xs font-mono text-[#64765A] bg-white/70 p-3.5 rounded-xl border border-[#D6D0C3]/80">
+                  <span className="block text-[10px] uppercase text-[#AD765B] font-bold tracking-wider mb-1">
+                    Рослинні маркери
+                  </span>
+                  {layer.species}
+                </div>
+
+                {/* Architectural Purpose (4 cols) */}
+                <div className="md:col-span-4 text-sm text-[#262925]/85 font-sans font-light leading-relaxed">
+                  {layer.desc}
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* SECTION 3: COMMON DESIGN MISTAKES & ARCHITECTURAL SOLUTIONS */}
-        <div className="space-y-6 pt-6 border-t border-[#D6D0C3]">
+        {/* SECTION 3: EDITORIAL COMPARATIVE FIELD NOTES (NO RED BOX CARDS) */}
+        <div className="space-y-8 pt-8 border-t border-[#D6D0C3]">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
-              Фаховий аудит помилок
+              Фаховий аудит
             </span>
             <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24] mt-1">
-              Чого ніколи не робить професійний архітектор
+              Архітектурні контрасти: Типові помилки та природні рішення
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {commonMistakes.map((item, idx) => (
-              <div key={idx} className="p-6 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3] space-y-3">
-                <div className="flex items-start gap-2.5 text-xs text-red-800 font-semibold font-mono">
-                  <AlertOctagon className="w-4 h-4 text-red-700 shrink-0 mt-0.5" />
-                  <span>Помилка: {item.mistake}</span>
+          <div className="divide-y divide-[#D6D0C3] border-t border-b border-[#D6D0C3]">
+            {fieldNotes.map((item) => (
+              <div key={item.num} className="py-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-baseline">
+                {/* Item Number */}
+                <div className="lg:col-span-1 font-mono text-sm font-bold text-[#AD765B]">
+                  [{item.num}]
                 </div>
-                <div className="flex items-start gap-2.5 text-xs text-emerald-900 font-medium font-sans pl-6 border-l-2 border-emerald-700">
-                  <span>Рішення: {item.fix}</span>
+
+                {/* Mistake (5 cols) */}
+                <div className="lg:col-span-5 space-y-1">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#AD765B] font-bold block">
+                    Помилка аматорського підходу
+                  </span>
+                  <p className="text-base font-serif text-[#182C24] font-medium leading-snug">
+                    {item.mistake}
+                  </p>
+                </div>
+
+                {/* Arrow spacer (1 col) */}
+                <div className="hidden lg:flex lg:col-span-1 justify-center text-[#64765A]">
+                  <ArrowRight className="w-5 h-5 text-[#64765A]" />
+                </div>
+
+                {/* Fix (5 cols) */}
+                <div className="lg:col-span-5 space-y-1">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#64765A] font-bold block">
+                    Природне архітектурне рішення
+                  </span>
+                  <p className="text-sm font-sans text-[#262925]/90 leading-relaxed font-light">
+                    {item.fix}
+                  </p>
                 </div>
               </div>
             ))}
