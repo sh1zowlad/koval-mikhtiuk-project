@@ -4,7 +4,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { AlpineGardenStyleId } from '../types/landscape';
 import { PlantSpecies } from '../types/botanical';
 import { PLANTS_DATABASE } from '../data/plantsData';
-import { Sparkles } from 'lucide-react';
 import { CanvasFallback } from './CanvasFallback';
 import {
   isWebGLAvailable,
@@ -367,29 +366,29 @@ export const Alpine3DCanvas: React.FC<Alpine3DCanvasProps> = ({ currentStyle, on
   }
 
   return (
-    <div className="relative w-full h-[480px] rounded-xl overflow-hidden shadow-xl border border-[#A7B39A]/40 bg-[#1F2922]">
+    <div className="relative w-full h-[480px] rounded-[18px] overflow-hidden shadow-lg border border-[#A7B39A]/30 bg-[#1F2922]">
       <div ref={containerRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
 
       {/* Style State Banner */}
-      <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-[#182C24]/90 backdrop-blur-md rounded border border-[#A7B39A]/40 flex items-center gap-2 text-xs font-mono text-[#F4F0E6]">
+      <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-[#182C24]/90 backdrop-blur-md rounded-lg border border-[#A7B39A]/30 flex items-center gap-2 text-xs font-sans text-[#F4F0E6]">
         <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
-        <span>3D-модель стилю: <strong className="capitalize text-[#A7B39A]">
+        <span>Стиль експозиції: <strong className="font-medium text-[#A7B39A]">
           {currentStyle === 'mountain-scree' ? 'Гірський осип' : currentStyle === 'minimalist' ? 'Мінімалістичний' : 'Квітучий килим'}
         </strong></span>
       </div>
 
       {/* Hover Callout */}
       {hoveredName && (
-        <div className="absolute top-3 right-3 z-10 px-3 py-1.5 bg-[#182C24]/90 backdrop-blur-md rounded border border-[#AD765B] text-xs font-medium text-[#F4F0E6] flex items-center gap-1.5 animate-fadeIn">
-          <Sparkles className="w-3.5 h-3.5 text-[#AD765B]" />
-          <span>Дослідити рослину: {hoveredName}</span>
+        <div className="absolute top-3 right-3 z-10 px-3 py-1.5 bg-[#182C24]/90 backdrop-blur-md rounded-lg border border-[#AD765B]/60 text-xs font-sans font-medium text-[#F4F0E6] flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#AD765B]" />
+          <span>Рослина: {hoveredName}</span>
         </div>
       )}
 
       {/* Bottom Hint */}
-      <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between px-3 py-2 bg-[#182C24]/80 backdrop-blur-sm rounded border border-[#A7B39A]/30 text-[11px] font-mono text-[#D6D0C3]">
-        <span>Обертання: ЛКМ / Дотик • Зум: Коліщатко</span>
-        <span className="text-[#A7B39A]">Клікніть по каменях і рослинах для перегляду досьє</span>
+      <div className="absolute bottom-3 left-3 right-3 z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 px-3 py-2 bg-[#182C24]/85 backdrop-blur-sm rounded-lg border border-[#A7B39A]/20 text-xs font-sans text-[#D6D0C3]">
+        <span>Обертання: миша / жест • Зум: коліщатко</span>
+        <span className="text-[#A7B39A]">Клікніть по рослині для відкриття картки</span>
       </div>
     </div>
   );

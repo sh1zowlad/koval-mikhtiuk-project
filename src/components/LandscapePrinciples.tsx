@@ -68,13 +68,11 @@ export const LandscapePrinciples: React.FC = () => {
     <div className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#FAF8F3] text-[#262925]">
       <div className="max-w-7xl mx-auto space-y-20">
         
-        {/* EDITORIAL CHAPTER HEADER — NO AI METRIC CARDS */}
-        <div className="border-b border-[#D6D0C3] pb-12">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#64765A] mb-4">
+        {/* NATURAL EDITORIAL HEADER */}
+        <div className="border-b border-[#D6D0C3] pb-10">
+          <div className="flex items-center gap-2 text-xs font-sans text-[#64765A] mb-3.5">
             <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
-            <span>Архітектурна теорія</span>
-            <span>//</span>
-            <span>Граматика простору</span>
+            <span>Архітектурна композиція • Граматика ландшафтного простору</span>
           </div>
           
           <h1 className="text-4xl sm:text-6xl font-serif font-bold text-[#182C24] leading-[1.1] max-w-4xl">
@@ -91,10 +89,10 @@ export const LandscapePrinciples: React.FC = () => {
         <div className="space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#D6D0C3] pb-6">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
-                Інтерактивна схема // 10 Законів
+              <span className="text-xs font-sans text-[#AD765B] block mb-1">
+                Інтерактивна схема • 10 законів композиції
               </span>
-              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24] mt-1">
+              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24]">
                 Дослідження композиційної сітки ділянки
               </h2>
             </div>

@@ -38,25 +38,21 @@ export const Spaces3DPage: React.FC<Spaces3DPageProps> = ({ onSelectPlant }) => 
 
   return (
     <div className="bg-[#182C24] text-[#F4F0E6] min-h-screen">
-      {/* 3D Pavilion Curatorial Header — Clean Editorial Typography */}
+      {/* 3D Pavilion Curatorial Header — Clean Natural Typography */}
       <div className="pt-16 pb-6 px-4 sm:px-6 lg:px-8 border-b border-[#A7B39A]/20">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#A7B39A] mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#AD765B] animate-pulse" />
-            <span>Інтерактивний 3D-Павільйон</span>
-            <span>//</span>
-            <span>Three.js просторовий аналіз</span>
-            <span>//</span>
-            <span>Норми ДБН В.2.1-10:2018</span>
+          <div className="flex items-center gap-2 text-xs font-sans text-[#A7B39A] mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
+            <span>Інтерактивні 3D простори • Рельєф, каміння та вертикальне озеленення</span>
           </div>
 
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-6xl font-serif font-bold text-[#F4F0E6] leading-tight">
-              3D Інженерні <br />
-              <span className="italic font-normal text-[#A7B39A]">Простори та Конструкції.</span>
+              Конструкції та рельєф <br />
+              <span className="italic font-normal text-[#A7B39A]">у тривимірному просторі.</span>
             </h1>
             <p className="mt-4 text-base sm:text-lg text-[#D6D0C3] leading-relaxed font-light font-sans">
-              Досліджуйте тривимірні інтерактивні моделі складної геопластики, кам’яних конструкцій та вертикального озеленення. Обертайте камеру, змінюйте кути зору та інспектуйте ботанічні хотспоти.
+              Тривимірні моделі складної геопластики, кам’яних конструкцій та вертикального озеленення. Обертайте камеру, змінюйте кути зору та досліджуйте ботанічні хотспоти.
             </p>
           </div>
 

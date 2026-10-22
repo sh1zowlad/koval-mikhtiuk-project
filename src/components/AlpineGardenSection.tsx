@@ -40,11 +40,10 @@ export const AlpineGardenSection: React.FC<AlpineGardenSectionProps> = ({ onSele
       <div className="max-w-7xl mx-auto space-y-16">
         
         {/* CHAPTER HERO HEADER */}
-        <div className="border-b border-[#A7B39A]/30 pb-10">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#A7B39A] mb-3">
-            <span className="px-2 py-0.5 bg-[#64765A] rounded text-[#F4F0E6] font-semibold">Альпінарій</span>
-            <span>//</span>
-            <span>Скельні біотопи та геопластика</span>
+        <div className="border-b border-[#A7B39A]/20 pb-8">
+          <div className="flex items-center gap-2 text-xs font-sans text-[#A7B39A] mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
+            <span>Альпінарій • Скельні біотопи та геопластика схилів</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-serif font-bold text-[#F4F0E6] leading-tight">
@@ -52,27 +51,25 @@ export const AlpineGardenSection: React.FC<AlpineGardenSectionProps> = ({ onSele
             <span className="italic font-normal text-[#A7B39A]">Геологія осипів та скельна флора у 3D.</span>
           </h1>
 
-          <p className="mt-4 text-base sm:text-xl text-[#D6D0C3] max-w-3xl leading-relaxed font-light">
+          <p className="mt-4 text-base sm:text-xl text-[#D6D0C3] max-w-3xl leading-relaxed font-light font-sans">
             Справжній альпінарій — це не штучна насипна гірка, а філігранна реконструкція гірського екотону. Тут панує мінеральний скелет, абсолютний дренаж та рослини-подушки, адаптовані до екстремального сонця і вітрів.
           </p>
-
-
         </div>
 
         {/* SECTION 1: 3D INTERACTIVE SHOWCASE & STYLE MORPHER */}
         <div className="space-y-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#A7B39A]/30 pb-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#A7B39A]/20 pb-6">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
-                Інтерактивний 3D-рушій Three.js
+              <span className="text-xs font-sans text-[#AD765B] block mb-1">
+                Інтерактивна 3D модель
               </span>
-              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#F4F0E6] mt-1">
+              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#F4F0E6]">
                 Тривимірна морфологія альпінарію
               </h2>
             </div>
 
             {/* Style Selector Tabs */}
-            <div className="flex flex-wrap gap-2 bg-[#1F2922] p-1.5 rounded-xl border border-[#A7B39A]/40 shrink-0">
+            <div className="flex flex-wrap gap-1.5 bg-[#1F2922] p-1.5 rounded-xl border border-[#A7B39A]/30 shrink-0">
               {ALPINE_STYLES_DATA.map(st => {
                 const isSelected = st.id === selectedStyleId;
                 return (

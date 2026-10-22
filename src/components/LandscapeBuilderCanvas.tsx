@@ -627,7 +627,7 @@ export const LandscapeBuilderCanvas: React.FC<LandscapeBuilderCanvasProps> = ({ 
   }
 
   return (
-    <div className="relative w-full h-[520px] rounded-2xl overflow-hidden shadow-2xl border border-[#A7B39A]/40 bg-[#182C24]">
+    <div className="relative w-full h-[520px] rounded-[18px] overflow-hidden shadow-xl border border-[#A7B39A]/30 bg-[#182C24]">
       {/* 3D WebGL Canvas */}
       <div ref={containerRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
 
@@ -714,13 +714,13 @@ export const LandscapeBuilderCanvas: React.FC<LandscapeBuilderCanvasProps> = ({ 
       </div>
 
       {/* Bottom Status Banner */}
-      <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between px-3.5 py-2.5 bg-[#182C24]/90 backdrop-blur-md rounded-xl border border-[#A7B39A]/30 text-xs font-mono text-[#D6D0C3]">
+      <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between px-3.5 py-2 bg-[#182C24]/85 backdrop-blur-sm rounded-lg border border-[#A7B39A]/20 text-xs font-sans text-[#D6D0C3]">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#A7B39A] animate-pulse" />
-          <span className="font-semibold text-[#F4F0E6]">Генеративний 3D простір саду</span>
+          <span className="w-2 h-2 rounded-full bg-[#A7B39A]" />
+          <span className="font-medium text-[#F4F0E6]">Інтерактивна 3D модель ділянки</span>
         </div>
-        <div className="text-[11px] text-[#A7B39A] hidden sm:block">
-          ЛКМ: Обертання • ПКМ: Панорамування • Колесо: Зум
+        <div className="text-xs text-[#A7B39A] hidden sm:block">
+          Миша: вільний огляд • Жест: панорамування • Коліщатко: зум
         </div>
       </div>
     </div>

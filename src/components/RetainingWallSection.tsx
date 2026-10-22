@@ -56,11 +56,10 @@ export const RetainingWallSection: React.FC<RetainingWallSectionProps> = ({ onSe
       <div className="max-w-7xl mx-auto space-y-16">
         
         {/* CHAPTER HERO HEADER */}
-        <div className="border-b border-[#A7B39A]/60 pb-10">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#64765A] mb-3">
-            <span className="px-2 py-0.5 bg-[#EAE4D5] rounded text-[#182C24] font-semibold">Підпірні стіни</span>
-            <span>//</span>
-            <span>Геотехнічна інженерія та камінь</span>
+        <div className="border-b border-[#A7B39A]/40 pb-8">
+          <div className="flex items-center gap-2 text-xs font-sans text-[#64765A] mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
+            <span>Підпірні стіни • Геотехнічна інженерія та камінь</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-serif font-bold text-[#182C24] leading-tight">
@@ -68,27 +67,25 @@ export const RetainingWallSection: React.FC<RetainingWallSectionProps> = ({ onSe
             <span className="italic font-normal text-[#64765A]">Геопластика схилів та розвантаження тиску.</span>
           </h1>
 
-          <p className="mt-4 text-base sm:text-xl text-[#64765A] max-w-3xl leading-relaxed font-light">
+          <p className="mt-4 text-base sm:text-xl text-[#64765A] max-w-3xl leading-relaxed font-light font-sans">
             Підпірна стінка — це найвідповідальніша споруда в саду. Вона працює проти гравітації, тримаючи масу насипного схилу, і водночас стає теплим кам'яним скелетом для каскадних настінних рослин.
           </p>
-
-
         </div>
 
         {/* SECTION 1: 3D X-RAY RETAINING WALL SIMULATOR */}
         <div className="space-y-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#D6D0C3] pb-6">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
-                Інтерактивний 3D-рушій з рентген-зрізом
+              <span className="text-xs font-sans text-[#AD765B] block mb-1">
+                3D Модель з розрізом
               </span>
-              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24] mt-1">
+              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24]">
                 Конструктивна анатомія та застінний дренаж
               </h2>
             </div>
 
             {/* Wall Concept Tabs */}
-            <div className="flex flex-wrap gap-2 bg-[#FAF8F3] p-1.5 rounded-xl border border-[#D6D0C3] shrink-0">
+            <div className="flex flex-wrap gap-1.5 bg-[#FAF8F3] p-1.5 rounded-xl border border-[#D6D0C3] shrink-0">
               {RETAINING_WALLS_DATA.map(w => {
                 const isSelected = w.id === selectedWallId;
                 return (

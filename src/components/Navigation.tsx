@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Volume2, VolumeX, Menu, X, Compass, Sparkles } from 'lucide-react';
+import { Volume2, VolumeX, Menu, X, Compass, Layers } from 'lucide-react';
 import { ambientSound } from '../utils/ambientAudio';
 import { COURSE_MODULES } from '../data/courseModules';
 
@@ -48,21 +48,21 @@ export const Navigation: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Brand Wordmark */}
+          {/* Brand Wordmark — Human & Grounded */}
           <Link to="/" className="flex items-center gap-2.5 text-[#F4F0E6] group">
-            <span className="w-8 h-8 rounded-full bg-[#64765A] border border-[#A7B39A]/60 flex items-center justify-center text-[#F4F0E6] group-hover:bg-[#AD765B] transition-colors">
+            <span className="w-8 h-8 rounded-full bg-[#64765A] border border-[#A7B39A]/40 flex items-center justify-center text-[#F4F0E6] group-hover:bg-[#AD765B] transition-colors">
               <Compass className="w-4 h-4" />
             </span>
             <div>
-              <span className="font-serif text-base sm:text-lg tracking-wider font-bold">KOVAL MIKHTIUK</span>
-              <span className="font-mono text-[10px] tracking-widest text-[#A7B39A] block uppercase -mt-1">
-                TERRA // Ландшафтна архітектура
+              <span className="font-serif text-base sm:text-lg tracking-wide font-bold">KOVAL MIKHTIUK</span>
+              <span className="text-[11px] text-[#A7B39A] block font-sans -mt-0.5">
+                Майстерня природного ландшафту
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links (Clean 5-Item Architecture) */}
-          <nav className="hidden lg:flex items-center gap-1.5 bg-[#182C24]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#A7B39A]/30">
+          {/* Desktop Navigation Links — Warm & Tactile */}
+          <nav className="hidden lg:flex items-center gap-1 bg-[#182C24]/90 px-3 py-1.5 rounded-full border border-[#A7B39A]/25 shadow-sm">
             {primaryNavItems.map(item => {
               const isActive = location.pathname === item.path ||
                 (item.path !== '/' && location.pathname.startsWith(item.path));
@@ -70,10 +70,10 @@ export const Navigation: React.FC = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`px-4 py-1.5 text-[13px] font-sans rounded-full transition-all tracking-wide ${
+                  className={`px-3.5 py-1 text-[13px] font-sans rounded-full transition-all ${
                     isActive
-                      ? 'bg-[#64765A] text-[#F4F0E6] font-semibold shadow-sm'
-                      : 'text-[#D6D0C3] hover:text-[#F4F0E6] hover:bg-[#64765A]/30'
+                      ? 'bg-[#64765A] text-[#F4F0E6] font-medium shadow-xs'
+                      : 'text-[#D6D0C3] hover:text-[#F4F0E6] hover:bg-white/5'
                   }`}
                 >
                   {item.label}
@@ -82,15 +82,15 @@ export const Navigation: React.FC = () => {
             })}
           </nav>
 
-          {/* Right Action Icons: 3D Studio CTA + Ambient Audio Toggle + Mobile Menu */}
+          {/* Right Action Icons */}
           <div className="flex items-center gap-2 sm:gap-3">
             {/* Direct Link to Studio */}
             <Link
               to="/studio"
-              className="px-3.5 py-1.5 bg-[#AD765B] hover:bg-[#c4876b] text-[#F4F0E6] rounded-full text-xs font-mono font-semibold flex items-center gap-1.5 shadow-sm transition-all"
+              className="px-3.5 py-1.5 bg-[#AD765B] hover:bg-[#c4876b] text-[#F4F0E6] rounded-full text-xs font-sans font-medium flex items-center gap-1.5 shadow-sm transition-all"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#F4F0E6]" />
-              <span className="hidden sm:inline">3D Студія</span>
+              <Layers className="w-3.5 h-3.5 text-[#F4F0E6]" />
+              <span className="hidden sm:inline">3D Конструктор</span>
               <span className="sm:hidden">3D</span>
             </Link>
 

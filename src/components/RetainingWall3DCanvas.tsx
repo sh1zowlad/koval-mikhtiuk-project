@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { RetainingWallId } from '../types/landscape';
 import { PlantSpecies } from '../types/botanical';
 import { PLANTS_DATABASE } from '../data/plantsData';
-import { Layers, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Layers, CheckCircle2 } from 'lucide-react';
 import { CanvasFallback } from './CanvasFallback';
 import {
   isWebGLAvailable,
@@ -421,17 +421,17 @@ export const RetainingWall3DCanvas: React.FC<RetainingWall3DCanvasProps> = ({
   }
 
   return (
-    <div className="relative w-full h-[480px] rounded-xl overflow-hidden shadow-xl border border-[#A7B39A]/40 bg-[#1B231F]">
+    <div className="relative w-full h-[480px] rounded-[18px] overflow-hidden shadow-lg border border-[#A7B39A]/30 bg-[#1B231F]">
       <div ref={containerRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
 
       {/* Controls Bar */}
       <div className="absolute top-3 left-3 z-10 flex flex-wrap gap-2">
         <button
           onClick={onToggleDrainage}
-          className={`px-3 py-1.5 text-xs font-mono rounded border transition-all flex items-center gap-1.5 cursor-pointer ${
+          className={`px-3 py-1.5 text-xs font-sans rounded-lg border transition-all flex items-center gap-1.5 cursor-pointer ${
             showDrainageCutaway
-              ? 'bg-[#AD765B] text-[#F4F0E6] border-[#AD765B] font-semibold'
-              : 'bg-[#182C24]/90 text-[#F4F0E6] border-[#A7B39A]/40 hover:bg-[#64765A]'
+              ? 'bg-[#AD765B] text-[#F4F0E6] border-[#AD765B] font-medium'
+              : 'bg-[#182C24]/90 text-[#F4F0E6] border-[#A7B39A]/30 hover:bg-[#64765A]'
           }`}
         >
           <Layers className="w-3.5 h-3.5" />
@@ -441,14 +441,14 @@ export const RetainingWall3DCanvas: React.FC<RetainingWall3DCanvasProps> = ({
 
       {/* Hover Callout */}
       {hoveredPart && (
-        <div className="absolute top-3 right-3 z-10 px-3 py-1.5 bg-[#182C24]/90 backdrop-blur-md rounded border border-[#AD765B] text-xs font-medium text-[#F4F0E6] flex items-center gap-1.5 animate-fadeIn">
-          <Sparkles className="w-3.5 h-3.5 text-[#AD765B]" />
+        <div className="absolute top-3 right-3 z-10 px-3 py-1.5 bg-[#182C24]/90 backdrop-blur-md rounded-lg border border-[#AD765B]/60 text-xs font-sans font-medium text-[#F4F0E6] flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#AD765B]" />
           <span>{hoveredPart}</span>
         </div>
       )}
 
       {/* Bottom Architectural Legend */}
-      <div className="absolute bottom-3 left-3 right-3 z-10 flex flex-wrap items-center justify-between gap-2 px-3 py-2 bg-[#182C24]/85 backdrop-blur-sm rounded border border-[#A7B39A]/30 text-[11px] font-mono text-[#D6D0C3]">
+      <div className="absolute bottom-3 left-3 right-3 z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 px-3 py-2 bg-[#182C24]/85 backdrop-blur-sm rounded-lg border border-[#A7B39A]/20 text-xs font-sans text-[#D6D0C3]">
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1 text-[#F4F0E6]">
             <CheckCircle2 className="w-3 h-3 text-[#A7B39A]" />
@@ -459,7 +459,7 @@ export const RetainingWall3DCanvas: React.FC<RetainingWall3DCanvasProps> = ({
             Живі посадкові кишені
           </span>
         </div>
-        <span className="text-[#A7B39A]">Обертання: ЛКМ / Дотик • Клік по рослинах для перегляду</span>
+        <span className="text-[#A7B39A]">Обертання: миша / жест • Клікніть по рослинах для опису</span>
       </div>
     </div>
   );

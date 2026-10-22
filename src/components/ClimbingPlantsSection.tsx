@@ -117,11 +117,10 @@ export const ClimbingPlantsSection: React.FC<ClimberSectionProps> = ({ onSelectP
       <div className="max-w-7xl mx-auto space-y-16">
         
         {/* CHAPTER HERO HEADER */}
-        <div className="border-b border-[#A7B39A]/30 pb-10">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#A7B39A] mb-3">
-            <span className="px-2 py-0.5 bg-[#64765A] rounded text-[#F4F0E6] font-semibold">Виткі ліани</span>
-            <span>//</span>
-            <span>Вертикальний вимір та зелена архітектура</span>
+        <div className="border-b border-[#A7B39A]/20 pb-8">
+          <div className="flex items-center gap-2 text-xs font-sans text-[#A7B39A] mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
+            <span>Виткі ліани • Вертикальний вимір та зелена архітектура</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-serif font-bold text-[#F4F0E6] leading-tight">
@@ -129,27 +128,25 @@ export const ClimbingPlantsSection: React.FC<ClimberSectionProps> = ({ onSelectP
             <span className="italic font-normal text-[#A7B39A]">Живі перголи, ліани та 4 пори року у 3D.</span>
           </h1>
 
-          <p className="mt-4 text-base sm:text-xl text-[#D6D0C3] max-w-3xl leading-relaxed font-light">
+          <p className="mt-4 text-base sm:text-xl text-[#D6D0C3] max-w-3xl leading-relaxed font-light font-sans">
             Вертикальні поверхні володіють найбільшим потенціалом у компактних садах. Ліани перетворюють глухі огорожі та стіни будинків на багатошарові живі завіси, захищаючи фасад від перегріву влітку та створюючи камерний затишок.
           </p>
-
-
         </div>
 
         {/* SECTION 1: 3D INTERACTIVE SEASON & SPECIES SIMULATOR */}
         <div className="space-y-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#A7B39A]/30 pb-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#A7B39A]/20 pb-6">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
-                Інтерактивна 3D Пергола
+              <span className="text-xs font-sans text-[#AD765B] block mb-1">
+                Інтерактивна 3D пергола
               </span>
-              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#F4F0E6] mt-1">
+              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#F4F0E6]">
                 Симуляція розвитку ліан за порами року
               </h2>
             </div>
 
             {/* Season Switcher Pills */}
-            <div className="flex items-center gap-1.5 bg-[#1F2922] p-1.5 rounded-xl border border-[#A7B39A]/40 shrink-0">
+            <div className="flex items-center gap-1.5 bg-[#1F2922] p-1.5 rounded-xl border border-[#A7B39A]/30 shrink-0">
               {SEASONS.map(s => {
                 const isSelected = s === selectedSeason;
                 return (

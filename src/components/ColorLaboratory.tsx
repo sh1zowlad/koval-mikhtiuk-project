@@ -49,11 +49,10 @@ export const ColorLaboratory: React.FC<ColorLaboratoryProps> = ({ onSelectPlant 
       <div className="max-w-7xl mx-auto space-y-16">
         
         {/* CHAPTER HERO HEADER */}
-        <div className="border-b border-[#A7B39A]/60 pb-10">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#64765A] mb-3">
-            <span className="px-2 py-0.5 bg-[#EAE4D5] rounded text-[#182C24] font-semibold">Колористика</span>
-            <span>//</span>
-            <span>Теорія колористичної гармонії</span>
+        <div className="border-b border-[#A7B39A]/40 pb-8">
+          <div className="flex items-center gap-2 text-xs font-sans text-[#64765A] mb-3">
+            <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
+            <span>Колористика • Сезонні палітри та оптична глибина саду</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-serif font-bold text-[#182C24] leading-tight">
@@ -61,27 +60,25 @@ export const ColorLaboratory: React.FC<ColorLaboratoryProps> = ({ onSelectPlant 
             <span className="italic font-normal text-[#64765A]">Живі палітри, фенологія та оптична глибина.</span>
           </h1>
 
-          <p className="mt-4 text-base sm:text-xl text-[#64765A] max-w-3xl leading-relaxed font-light">
+          <p className="mt-4 text-base sm:text-xl text-[#64765A] max-w-3xl leading-relaxed font-light font-sans">
             У природному дизайні колір ніколи не розглядається як статична фарба на стіні. Це динамічний часовий вектор: забарвлення змінюється щотижня від ніжних весняних пагонів до літніх суцвіть, осінньої міді та графічної зимової монохромії.
           </p>
-
-
         </div>
 
         {/* SECTION 1: 6 PALETTES INTERACTIVE LABORATORY */}
         <div className="space-y-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
-                Інтерактивна лабораторія палітр
+              <span className="text-xs font-sans text-[#AD765B] block mb-1">
+                Колористичні гармонії
               </span>
-              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24] mt-1">
-                Шість природних колористичних гармоній
+              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24]">
+                Шість природних палітр
               </h2>
             </div>
-            <div className="flex items-center gap-2 text-xs font-mono text-[#64765A] bg-[#FAF8F3] px-3.5 py-2 rounded-xl border border-[#D6D0C3]">
+            <div className="flex items-center gap-2 text-xs font-sans text-[#64765A] bg-[#FAF8F3] px-3.5 py-1.5 rounded-lg border border-[#D6D0C3]">
               <Palette className="w-4 h-4 text-[#AD765B]" />
-              <span>Оберіть гармонію для аналізу</span>
+              <span>Оберіть палітру для перегляду</span>
             </div>
           </div>
 

@@ -6,7 +6,7 @@ import { RETAINING_WALLS_DATA } from '../data/retainingWallData';
 import { PLANTS_DATABASE } from '../data/plantsData';
 import { 
   RotateCcw, Copy, Check, FileSpreadsheet, Download, 
-  Layers, Compass, Trees, Flower2, ShieldAlert, Sparkles, X, Printer
+  Layers, Compass, Trees, Flower2, ShieldAlert, X, Printer
 } from 'lucide-react';
 
 interface LandscapeBuilderProps {
@@ -125,43 +125,42 @@ export const LandscapeBuilder: React.FC<LandscapeBuilderProps> = ({ standalone =
   return (
     <section id="playground" className={`py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#F4F0E6] text-[#262925] relative ${standalone ? 'min-h-screen' : ''}`}>
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="border-b border-[#A7B39A]/60 pb-8 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        {/* Natural Header */}
+        <div className="border-b border-[#A7B39A]/40 pb-7 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#64765A] mb-2">
-              <span className="px-2 py-0.5 bg-[#EAE4D5] rounded text-[#182C24] font-semibold">3D Студія</span>
-              <span>//</span>
-              <span>Інтерактивна 3D Дизайн-студія</span>
+            <div className="flex items-center gap-2 text-xs font-sans text-[#64765A] mb-2.5">
+              <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
+              <span>3D Конструктор • Інтерактивний підбір ділянки та матеріалів</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-serif font-bold text-[#182C24]">
               Створіть свій ландшафт
             </h2>
-            <p className="mt-3 text-base sm:text-lg text-[#64765A] max-w-2xl leading-relaxed">
-              Синтезуйте композиційні правила, кам'яну інженерію та ботанічну палітру. Керуйте параметрами ділянки у реальному часі та формуйте готовий архітектурний бриф.
+            <p className="mt-3 text-base sm:text-lg text-[#64765A] max-w-2xl leading-relaxed font-light">
+              Поєднуйте композиційні правила, кам'яну інженерію та ботанічну палітру. Керуйте параметрами ділянки у реальному часі та формуйте готовий ландшафтний бриф.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2.5">
+          <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={resetConfig}
-              className="px-4 py-2.5 text-xs font-mono bg-[#EAE4D5] hover:bg-[#D6D0C3] text-[#182C24] rounded-xl border border-[#A7B39A]/50 transition-colors flex items-center gap-1.5"
+              className="px-3.5 py-2 text-xs font-sans bg-[#EAE4D5] hover:bg-[#D6D0C3] text-[#182C24] rounded-lg border border-[#A7B39A]/40 transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Скинути</span>
             </button>
             <button
               onClick={handleCopySummary}
-              className="px-4 py-2.5 text-xs font-mono bg-[#EAE4D5] hover:bg-[#D6D0C3] text-[#182C24] rounded-xl border border-[#A7B39A]/50 transition-colors flex items-center gap-1.5"
+              className="px-3.5 py-2 text-xs font-sans bg-[#EAE4D5] hover:bg-[#D6D0C3] text-[#182C24] rounded-lg border border-[#A7B39A]/40 transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-700" /> : <Copy className="w-3.5 h-3.5" />}
               <span>{copied ? 'Скопійовано' : 'Копіювати бриф'}</span>
             </button>
             <button
               onClick={() => setShowExportModal(true)}
-              className="px-5 py-2.5 text-xs font-mono bg-[#AD765B] hover:bg-[#c4876b] text-[#F4F0E6] rounded-xl transition-all shadow-md hover:shadow-lg flex items-center gap-2"
+              className="px-4 py-2 text-xs font-sans font-medium bg-[#AD765B] hover:bg-[#c4876b] text-[#F4F0E6] rounded-lg transition-all shadow-xs flex items-center gap-2 cursor-pointer"
             >
-              <FileSpreadsheet className="w-4 h-4" />
-              <span>Паспорт проекту</span>
+              <FileSpreadsheet className="w-3.5 h-3.5" />
+              <span>Паспорт проєкту</span>
             </button>
           </div>
         </div>
@@ -205,14 +204,14 @@ export const LandscapeBuilder: React.FC<LandscapeBuilderProps> = ({ standalone =
             <LandscapeBuilderCanvas config={config} />
 
             {/* Generated Design Logic Card */}
-            <div className="bg-[#FAF8F3] p-6 sm:p-7 rounded-2xl border border-[#D6D0C3] space-y-4 shadow-sm">
+            <div className="bg-[#FAF8F3] p-6 sm:p-7 rounded-[18px] border border-[#D6D0C3] space-y-4 shadow-sm">
               <div className="flex items-center justify-between text-xs border-b border-[#D6D0C3]/60 pb-3">
-                <span className="font-mono text-[11px] text-[#AD765B] uppercase tracking-wider font-semibold flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  Архітектурно-ландшафтний синтез
+                <span className="font-sans text-xs text-[#AD765B] font-medium flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#AD765B]" />
+                  Синтез обраних параметрів
                 </span>
-                <span className="font-mono text-[11px] text-[#64765A] bg-[#EAE4D5] px-2.5 py-1 rounded-md">
-                  Детермінована 3D модель
+                <span className="font-sans text-[11px] text-[#64765A] bg-[#EAE4D5] px-2.5 py-0.5 rounded-md">
+                  3D Модель
                 </span>
               </div>
 

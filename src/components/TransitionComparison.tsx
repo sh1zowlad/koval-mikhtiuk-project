@@ -75,13 +75,11 @@ export const TransitionComparison: React.FC = () => {
     <div className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#182C24] text-[#F4F0E6]">
       <div className="max-w-7xl mx-auto space-y-20">
         
-        {/* EDITORIAL HEADER — PURE ARCHITECTURAL TYPOGRAPHY */}
-        <div className="border-b border-[#A7B39A]/20 pb-12">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#A7B39A] mb-4">
+        {/* NATURAL EDITORIAL HEADER */}
+        <div className="border-b border-[#A7B39A]/20 pb-10">
+          <div className="flex items-center gap-2 text-xs font-sans text-[#A7B39A] mb-3.5">
             <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
-            <span>Просторова динаміка</span>
-            <span>//</span>
-            <span>Безшовне злиття середовищ</span>
+            <span>Просторова динаміка • Безшовне поєднання середовищ</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-[#F4F0E6] leading-[1.08] max-w-4xl">
@@ -98,20 +96,20 @@ export const TransitionComparison: React.FC = () => {
         <div className="space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#A7B39A]/20 pb-6">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
+              <span className="text-xs font-sans text-[#AD765B] block mb-1">
                 Інтерактивне порівняння
               </span>
-              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#F4F0E6] mt-1">
+              <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#F4F0E6]">
                 Штучні кордони проти природного екотону
               </h2>
             </div>
-            <div className="flex items-center gap-2 text-xs font-mono text-[#A7B39A]">
+            <div className="flex items-center gap-2 text-xs font-sans text-[#A7B39A]">
               <Sliders className="w-4 h-4 text-[#AD765B]" />
               <span>Тягніть розділювач ліворуч або праворуч</span>
             </div>
           </div>
 
-          <div className="relative w-full h-[440px] sm:h-[500px] rounded-3xl overflow-hidden border border-[#A7B39A]/30 shadow-2xl bg-[#262925] select-none">
+          <div className="relative w-full h-[440px] sm:h-[500px] rounded-[20px] overflow-hidden border border-[#A7B39A]/30 shadow-xl bg-[#262925] select-none">
             {/* AFTER: NATURALISTIC CONTINUITY (Underneath) */}
             <div className="absolute inset-0 bg-[#25392D] flex flex-col justify-between p-6 sm:p-8">
               <div className="flex items-center justify-end">

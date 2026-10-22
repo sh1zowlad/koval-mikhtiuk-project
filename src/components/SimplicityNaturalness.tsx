@@ -75,13 +75,11 @@ export const SimplicityNaturalness: React.FC = () => {
     <div className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#FAF8F3] text-[#262925]">
       <div className="max-w-7xl mx-auto space-y-20">
         
-        {/* EDITORIAL CHAPTER HEADER */}
-        <div className="border-b border-[#D6D0C3] pb-12">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#64765A] mb-4">
+        {/* NATURAL EDITORIAL HEADER */}
+        <div className="border-b border-[#D6D0C3] pb-10">
+          <div className="flex items-center gap-2 text-xs font-sans text-[#64765A] mb-3.5">
             <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
-            <span>Філософія натуралізму</span>
-            <span>//</span>
-            <span>Стриманість та цілісність</span>
+            <span>Філософія натуралізму • Стриманість та цілісність саду</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-[#182C24] leading-[1.08] max-w-4xl">
@@ -97,10 +95,10 @@ export const SimplicityNaturalness: React.FC = () => {
         {/* SECTION 1: THE 70/20/10 FORMULA (EDITORIAL STREAM) */}
         <div className="space-y-8">
           <div>
-            <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
-              Формула Нового Багаторічника
+            <span className="text-xs font-sans text-[#AD765B] block mb-1">
+              Формула природної посадки
             </span>
-            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24] mt-1">
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24]">
               Пропорція 70/20/10: Матриця, Структура, Спалахи
             </h2>
           </div>

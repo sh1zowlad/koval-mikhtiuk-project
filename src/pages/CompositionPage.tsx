@@ -22,35 +22,33 @@ export const CompositionPage: React.FC<CompositionPageProps> = ({ onSelectPlant 
 
   return (
     <div className="bg-[#FAF8F3] text-[#262925]">
-      {/* Editorial Header */}
-      <div className="bg-[#182C24] text-[#F4F0E6] pt-16 pb-14 px-4 sm:px-6 lg:px-8 border-b border-[#A7B39A]/30">
+      {/* Natural Editorial Header */}
+      <div className="bg-[#182C24] text-[#F4F0E6] pt-16 pb-12 px-4 sm:px-6 lg:px-8 border-b border-[#A7B39A]/20">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#A7B39A] mb-4">
+          <div className="flex items-center gap-2 text-xs font-sans text-[#A7B39A] mb-3.5">
             <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
-            <span>Фундаментальний розділ</span>
-            <span>//</span>
-            <span>Архітектурно-ботанічна теорія</span>
+            <span>Основи композиції • Ярусність • Колір і простір</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-serif font-bold text-[#F4F0E6] max-w-4xl leading-tight">
-            Теорія та Закони <br />
-            <span className="italic font-normal text-[#A7B39A]">Природної Композиції.</span>
+            Теорія та закони <br />
+            <span className="italic font-normal text-[#A7B39A]">природної композиції.</span>
           </h1>
 
-          <p className="mt-4 text-base sm:text-lg text-[#D6D0C3] max-w-3xl leading-relaxed font-light">
-            Сад — це динамічна архітектура в часі. Створення гармонійного ландшафту базується на чотирьох
+          <p className="mt-4 text-base sm:text-lg text-[#D6D0C3] max-w-3xl leading-relaxed font-light font-sans">
+            Сад — це живий простір у часі. Створення гармонійного ландшафту базується на чотирьох
             неподільних складових: просторовій граматиці, плавності ярусних переходів, принципі простоти
             (матриця 70/30) та колористичній гармонії природних барв.
           </p>
 
           {/* Quick Pillar Jump Pills */}
-          <div className="mt-8 flex flex-wrap gap-2.5">
+          <div className="mt-8 flex flex-wrap gap-2">
             <button
               onClick={() => { setActiveTab('all'); scrollToSection('principles-anchor'); }}
-              className={`px-4 py-2 rounded-full text-xs font-mono flex items-center gap-2 transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-sans flex items-center gap-2 transition-all cursor-pointer ${
                 activeTab === 'all'
-                  ? 'bg-[#AD765B] text-[#F4F0E6] font-semibold'
-                  : 'bg-white/10 hover:bg-white/20 text-[#D6D0C3]'
+                  ? 'bg-[#AD765B] text-[#F4F0E6] font-medium'
+                  : 'bg-white/10 hover:bg-white/15 text-[#D6D0C3]'
               }`}
             >
               <Compass className="w-3.5 h-3.5" />
@@ -59,10 +57,10 @@ export const CompositionPage: React.FC<CompositionPageProps> = ({ onSelectPlant 
 
             <button
               onClick={() => { setActiveTab('principles'); scrollToSection('principles-anchor'); }}
-              className={`px-4 py-2 rounded-full text-xs font-mono flex items-center gap-2 transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-sans flex items-center gap-2 transition-all cursor-pointer ${
                 activeTab === 'principles'
-                  ? 'bg-[#64765A] text-[#F4F0E6] font-semibold'
-                  : 'bg-white/10 hover:bg-white/20 text-[#D6D0C3]'
+                  ? 'bg-[#64765A] text-[#F4F0E6] font-medium'
+                  : 'bg-white/10 hover:bg-white/15 text-[#D6D0C3]'
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
@@ -71,10 +69,10 @@ export const CompositionPage: React.FC<CompositionPageProps> = ({ onSelectPlant 
 
             <button
               onClick={() => { setActiveTab('transitions'); scrollToSection('transitions-anchor'); }}
-              className={`px-4 py-2 rounded-full text-xs font-mono flex items-center gap-2 transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-sans flex items-center gap-2 transition-all cursor-pointer ${
                 activeTab === 'transitions'
-                  ? 'bg-[#64765A] text-[#F4F0E6] font-semibold'
-                  : 'bg-white/10 hover:bg-white/20 text-[#D6D0C3]'
+                  ? 'bg-[#64765A] text-[#F4F0E6] font-medium'
+                  : 'bg-white/10 hover:bg-white/15 text-[#D6D0C3]'
               }`}
             >
               <Sliders className="w-3.5 h-3.5" />
@@ -83,10 +81,10 @@ export const CompositionPage: React.FC<CompositionPageProps> = ({ onSelectPlant 
 
             <button
               onClick={() => { setActiveTab('naturalness'); scrollToSection('naturalness-anchor'); }}
-              className={`px-4 py-2 rounded-full text-xs font-mono flex items-center gap-2 transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-sans flex items-center gap-2 transition-all cursor-pointer ${
                 activeTab === 'naturalness'
-                  ? 'bg-[#64765A] text-[#F4F0E6] font-semibold'
-                  : 'bg-white/10 hover:bg-white/20 text-[#D6D0C3]'
+                  ? 'bg-[#64765A] text-[#F4F0E6] font-medium'
+                  : 'bg-white/10 hover:bg-white/15 text-[#D6D0C3]'
               }`}
             >
               <ShieldCheck className="w-3.5 h-3.5" />
@@ -95,10 +93,10 @@ export const CompositionPage: React.FC<CompositionPageProps> = ({ onSelectPlant 
 
             <button
               onClick={() => { setActiveTab('color'); scrollToSection('color-anchor'); }}
-              className={`px-4 py-2 rounded-full text-xs font-mono flex items-center gap-2 transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-sans flex items-center gap-2 transition-all cursor-pointer ${
                 activeTab === 'color'
-                  ? 'bg-[#64765A] text-[#F4F0E6] font-semibold'
-                  : 'bg-white/10 hover:bg-white/20 text-[#D6D0C3]'
+                  ? 'bg-[#64765A] text-[#F4F0E6] font-medium'
+                  : 'bg-white/10 hover:bg-white/15 text-[#D6D0C3]'
               }`}
             >
               <Palette className="w-3.5 h-3.5" />

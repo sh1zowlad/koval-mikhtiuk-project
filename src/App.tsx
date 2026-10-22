@@ -6,7 +6,6 @@ import { Footer } from './components/Footer';
 import { PlantModal } from './components/PlantModal';
 import { PageLayout } from './components/PageLayout';
 import { PlantSpecies } from './types/botanical';
-import { Sparkles } from 'lucide-react';
 
 // Lazy-loaded Core Page Pillars for optimal bundle performance
 const CompositionPage = lazy(() =>
@@ -22,14 +21,13 @@ const StudioPage = lazy(() =>
   import('./pages/StudioPage').then(m => ({ default: m.StudioPage }))
 );
 
-// Loading Skeleton
+// Gentle natural loading state
 const RouteLoadingFallback: React.FC = () => (
-  <div className="min-h-[50vh] flex flex-col items-center justify-center p-12 text-center text-[#A7B39A]">
-    <div className="w-10 h-10 rounded-full border-2 border-[#A7B39A]/20 border-t-[#AD765B] animate-spin mb-4" />
-    <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#D6D0C3]">
-      <Sparkles className="w-3.5 h-3.5 text-[#AD765B]" />
-      <span>Завантаження архітектурного простору...</span>
-    </div>
+  <div className="min-h-[50vh] flex flex-col items-center justify-center p-12 text-center">
+    <div className="w-8 h-8 rounded-full border-2 border-[#A7B39A]/30 border-t-[#AD765B] animate-spin mb-3.5" />
+    <span className="text-sm font-sans text-[#262925]/75 font-light">
+      Підготовка експозиції...
+    </span>
   </div>
 );
 

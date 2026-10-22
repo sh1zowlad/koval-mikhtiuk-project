@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { Camera, RotateCcw, Eye, Sparkles } from 'lucide-react';
+import { Camera, RotateCcw, Eye } from 'lucide-react';
 import { PlantSpecies } from '../types/botanical';
 import { PLANTS_DATABASE } from '../data/plantsData';
 import { CanvasFallback } from './CanvasFallback';
@@ -549,8 +549,8 @@ export const MasterGardenCanvas: React.FC<MasterGardenCanvasProps> = ({ onSelect
   if (!webGlAvailable) {
     return (
       <CanvasFallback
-        title="3D-панорама генеративного саду недоступна"
-        message="Апаратне прискорення WebGL не активовано або обмежено. Всі освітні креслення, ботанічні досьє та теоретичні розділи нижче залишаються повністю функціональними."
+        title="3D-панорама саду тимчасово недоступна"
+        message="Апаратне прискорення WebGL не активовано або обмежено. Всі описи рослин, фото та композиційні схеми залишаються повністю доступними для ознайомлення."
         heightClass="h-[620px] lg:h-[720px]"
         onRetry={() => setWebGlAvailable(true)}
       />
@@ -558,19 +558,19 @@ export const MasterGardenCanvas: React.FC<MasterGardenCanvasProps> = ({ onSelect
   }
 
   return (
-    <div className="relative w-full h-[620px] lg:h-[720px] rounded-2xl overflow-hidden shadow-2xl border border-[#A7B39A]/40 bg-[#182C24]">
+    <div className="relative w-full h-[620px] lg:h-[720px] rounded-[20px] overflow-hidden shadow-xl border border-[#A7B39A]/30 bg-[#182C24]">
       {/* 3D Canvas Mount Point */}
       <div ref={containerRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
 
       {/* Floating Viewpoint Controls Bar */}
-      <div className="absolute top-4 left-4 right-4 sm:right-auto z-10 flex flex-wrap gap-1.5 p-1.5 bg-[#182C24]/85 backdrop-blur-md rounded-lg border border-[#A7B39A]/40 shadow-lg">
+      <div className="absolute top-4 left-4 right-4 sm:right-auto z-10 flex flex-wrap gap-1.5 p-1.5 bg-[#182C24]/90 backdrop-blur-md rounded-xl border border-[#A7B39A]/30 shadow-md">
         {MASTER_VIEWPOINTS.map(vp => (
           <button
             key={vp.id}
             onClick={() => setCameraView(vp.id)}
-            className={`px-3 py-1.5 text-xs font-mono rounded transition-all flex items-center gap-1.5 cursor-pointer ${
+            className={`px-3 py-1.5 text-xs font-sans rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
               activeViewpoint === vp.id
-                ? 'bg-[#64765A] text-[#F4F0E6] shadow-sm font-semibold'
+                ? 'bg-[#64765A] text-[#F4F0E6] shadow-xs font-medium'
                 : 'text-[#D6D0C3] hover:text-[#F4F0E6] hover:bg-[#64765A]/30'
             }`}
           >
@@ -581,17 +581,17 @@ export const MasterGardenCanvas: React.FC<MasterGardenCanvasProps> = ({ onSelect
       </div>
 
       {/* Bottom Information Overlay */}
-      <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 bg-[#182C24]/90 backdrop-blur-md rounded-xl border border-[#A7B39A]/40 shadow-xl">
+      <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 bg-[#182C24]/90 backdrop-blur-md rounded-xl border border-[#A7B39A]/30 shadow-lg">
         <div className="flex items-center gap-3">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#AD765B] animate-ping" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[#AD765B]" />
           <div>
-            <p className="text-[11px] font-mono uppercase tracking-wider text-[#A7B39A]">
+            <p className="text-xs font-sans text-[#A7B39A]">
               Активний ракурс
             </p>
-            <p className="text-sm font-medium text-[#F4F0E6]">
+            <p className="text-sm font-sans font-medium text-[#F4F0E6]">
               {hoveredHotspot ? (
-                <span className="text-[#AD765B] font-semibold flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5" /> Дослідити: {hoveredHotspot}
+                <span className="text-[#AD765B] font-medium flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#AD765B]" /> Дослідити: {hoveredHotspot}
                 </span>
               ) : (
                 MASTER_VIEWPOINTS.find(v => v.id === activeViewpoint)?.description
@@ -603,28 +603,28 @@ export const MasterGardenCanvas: React.FC<MasterGardenCanvasProps> = ({ onSelect
         <div className="flex items-center gap-2 self-end sm:self-auto">
           <button
             onClick={() => setCameraView('overview')}
-            className="px-3 py-1.5 text-xs font-mono bg-[#262925] hover:bg-[#64765A] text-[#F4F0E6] rounded border border-[#A7B39A]/50 transition-colors flex items-center gap-1.5 cursor-pointer"
+            className="px-3 py-1.5 text-xs font-sans bg-[#262925] hover:bg-[#64765A] text-[#F4F0E6] rounded-lg border border-[#A7B39A]/40 transition-colors flex items-center gap-1.5 cursor-pointer"
             title="Скинути камеру на панораму"
           >
-            <RotateCcw className="w-3.5 h-3.5" /> Скинути вигляд
+            <RotateCcw className="w-3.5 h-3.5" /> Загальний вигляд
           </button>
           <button
             onClick={() => setIsAnimating(!isAnimating)}
-            className="px-3 py-1.5 text-xs font-mono bg-[#262925] hover:bg-[#64765A] text-[#F4F0E6] rounded border border-[#A7B39A]/50 transition-colors flex items-center gap-1.5 cursor-pointer"
-            title="Перемкнути анімацію вітру"
+            className="px-3 py-1.5 text-xs font-sans bg-[#262925] hover:bg-[#64765A] text-[#F4F0E6] rounded-lg border border-[#A7B39A]/40 transition-colors flex items-center gap-1.5 cursor-pointer"
+            title="Перемкнути рух рослин від вітру"
           >
-            <Camera className="w-3.5 h-3.5" /> {isAnimating ? 'Пауза вітру' : 'Увімкнути вітер'}
+            <Camera className="w-3.5 h-3.5" /> {isAnimating ? 'Пауза вітру' : 'Рух вітру'}
           </button>
         </div>
       </div>
 
       {/* Interactive Helper Overlay */}
-      <div className="absolute top-4 right-4 hidden md:flex items-center gap-2 px-3 py-1 text-[11px] font-mono text-[#A7B39A] bg-[#182C24]/80 backdrop-blur-sm rounded border border-[#A7B39A]/30 pointer-events-none">
-        <span>Обертання: ЛКМ / Дотик</span>
+      <div className="absolute top-4 right-4 hidden md:flex items-center gap-2 px-3 py-1 text-xs font-sans text-[#A7B39A] bg-[#182C24]/85 backdrop-blur-sm rounded-lg border border-[#A7B39A]/25 pointer-events-none">
+        <span>Обертання: миша / жест</span>
         <span>•</span>
-        <span>Зум: Коліщатко</span>
+        <span>Масштаб: коліщатко</span>
         <span>•</span>
-        <span>Клік по мітках: Досьє</span>
+        <span>Мітки: деталі рослини</span>
       </div>
     </div>
   );
