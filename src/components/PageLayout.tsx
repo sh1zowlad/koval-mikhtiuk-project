@@ -32,9 +32,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
               <span>Головна</span>
             </Link>
             <span className="text-[#A7B39A]">/</span>
-            <span className="text-[#AD765B] font-semibold">Розділ {currentModule.number}</span>
-            <span className="text-[#A7B39A]">/</span>
-            <span className="text-[#182C24] font-medium hidden sm:inline truncate max-w-xs md:max-w-md">
+            <span className="text-[#182C24] font-medium truncate max-w-xs md:max-w-md">
               {currentModule.title}
             </span>
           </nav>
@@ -73,7 +71,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
                 </div>
                 <div className="text-left overflow-hidden">
                   <span className="block text-[10px] font-mono uppercase text-[#A7B39A] tracking-wider">
-                    ← Розділ {prev.number}
+                    ← Назад
                   </span>
                   <span className="block text-sm font-serif font-bold text-[#F4F0E6] truncate group-hover:text-[#A7B39A] transition-colors">
                     {prev.shortTitle}
@@ -112,7 +110,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
               >
                 <div className="text-right overflow-hidden">
                   <span className="block text-[10px] font-mono uppercase text-[#A7B39A] tracking-wider">
-                    Розділ {next.number} →
+                    Далі →
                   </span>
                   <span className="block text-sm font-serif font-bold text-[#F4F0E6] truncate group-hover:text-[#A7B39A] transition-colors">
                     {next.shortTitle}
@@ -129,7 +127,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
               >
                 <div className="text-right">
                   <span className="block text-[10px] font-mono uppercase text-[#A7B39A] tracking-wider">Фінал</span>
-                  <span className="block text-sm font-serif font-bold text-[#F4F0E6]">Проєктна Студія</span>
+                  <span className="block text-sm font-serif font-bold text-[#F4F0E6]">3D Конструктор</span>
                 </div>
                 <div className="w-10 h-10 rounded-xl bg-[#AD765B] flex items-center justify-center text-[#F4F0E6] shrink-0">
                   <ArrowRight className="w-4 h-4" />

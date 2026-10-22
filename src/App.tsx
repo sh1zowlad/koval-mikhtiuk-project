@@ -80,7 +80,7 @@ export const App: React.FC = () => {
                 }
               />
 
-              {/* PILLAR 04 — BOTANICAL ATLAS & MAINTENANCE CALENDAR */}
+              {/* SECTION 04 — BOTANICAL ATLAS */}
               <Route
                 path="/atlas"
                 element={
@@ -90,7 +90,7 @@ export const App: React.FC = () => {
                 }
               />
 
-              {/* PILLAR 05 — DESIGN STUDIO & REALIZED CASE STUDY */}
+              {/* SECTION 05 — 3D LANDSCAPE BUILDER */}
               <Route
                 path="/studio"
                 element={

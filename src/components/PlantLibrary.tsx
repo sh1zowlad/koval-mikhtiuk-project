@@ -47,7 +47,7 @@ export const PlantLibrary: React.FC<PlantLibraryProps> = ({ onSelectPlant }) => 
         <div className="border-b border-[#A7B39A]/30 pb-12">
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#A7B39A] mb-3">
             <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
-            <span>Розділ 09</span>
+            <span>Ботаніка</span>
             <span>//</span>
             <span>Ботанічний архів та фітоценоз</span>
           </div>

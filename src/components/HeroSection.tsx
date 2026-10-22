@@ -36,7 +36,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSelectPlant }) => {
 
             {/* Supporting Descriptive Text */}
             <p className="mt-4 text-base sm:text-lg text-[#D6D0C3] font-sans font-light leading-relaxed max-w-2xl">
-              Академічне дослідження природної композиції: альпінарії, інженерія підпірних стін, вертикальне озеленення та гармонія живого взаємозв'язку рослин, каменю і рельєфу.
+              Авторська презентація концепції природної композиції: альпінарії, інженерія підпірних стін, вертикальне озеленення та гармонія живого взаємозв'язку рослин, каменю і рельєфу.
             </p>
           </div>
 
@@ -80,7 +80,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSelectPlant }) => {
           to="/composition"
           className="flex items-center gap-2 text-[#D6D0C3] hover:text-[#F4F0E6] transition-colors group"
         >
-          <span>Перейти до Розділу 02 // Композиція та закони</span>
+          <span>Перейти до розділу Композиція</span>
           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>

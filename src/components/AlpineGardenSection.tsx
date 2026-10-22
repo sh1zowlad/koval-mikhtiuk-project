@@ -42,7 +42,7 @@ export const AlpineGardenSection: React.FC<AlpineGardenSectionProps> = ({ onSele
         {/* CHAPTER HERO HEADER */}
         <div className="border-b border-[#A7B39A]/30 pb-10">
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#A7B39A] mb-3">
-            <span className="px-2 py-0.5 bg-[#64765A] rounded text-[#F4F0E6] font-semibold">Глава 05</span>
+            <span className="px-2 py-0.5 bg-[#64765A] rounded text-[#F4F0E6] font-semibold">Альпінарій</span>
             <span>//</span>
             <span>Скельні біотопи та геопластика</span>
           </div>

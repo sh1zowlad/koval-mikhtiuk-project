@@ -51,7 +51,7 @@ export const ColorLaboratory: React.FC<ColorLaboratoryProps> = ({ onSelectPlant 
         {/* CHAPTER HERO HEADER */}
         <div className="border-b border-[#A7B39A]/60 pb-10">
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#64765A] mb-3">
-            <span className="px-2 py-0.5 bg-[#EAE4D5] rounded text-[#182C24] font-semibold">Глава 08</span>
+            <span className="px-2 py-0.5 bg-[#EAE4D5] rounded text-[#182C24] font-semibold">Колористика</span>
             <span>//</span>
             <span>Теорія колористичної гармонії</span>
           </div>

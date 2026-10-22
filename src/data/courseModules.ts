@@ -10,7 +10,7 @@ export interface CourseModule {
   has3D?: boolean;
 }
 
-// 5 Core Editorial Pillars of KOVAL MIKHTIUK PROJECT
+// 5 Core Spatial Presentation Sections of KOVAL MIKHTIUK PROJECT
 export const COURSE_MODULES: CourseModule[] = [
   {
     id: 'hero',
@@ -18,7 +18,7 @@ export const COURSE_MODULES: CourseModule[] = [
     number: '01',
     title: 'Головна панорама саду',
     shortTitle: 'Головна 3D',
-    category: 'Вступ та 3D Модель',
+    category: 'Презентація 3D',
     description: 'Кінематографічне інтерактивне середовище Three.js з ракурсами камери, сонячним освітленням та ботанічними хотспотами.',
     has3D: true,
     badge: '3D Сад'
@@ -29,7 +29,7 @@ export const COURSE_MODULES: CourseModule[] = [
     number: '02',
     title: 'Теорія, закони композиції та колір',
     shortTitle: 'Композиція',
-    category: 'Філософія & Колористика',
+    category: 'Концепція & Колористика',
     description: 'Фундаментальні закони масштабу, інтерактивний повзунок плавних переходів «До/Після», матриця 70/30 та лабораторія кольору.',
     badge: 'Інтерактив'
   },
@@ -48,32 +48,32 @@ export const COURSE_MODULES: CourseModule[] = [
     id: 'atlas',
     path: '/atlas',
     number: '04',
-    title: 'Ботанічний атлас та фенологічний календар',
+    title: 'Ботанічний атлас флори проєкту',
     shortTitle: 'Ботанічний Атлас',
-    category: 'Флора & Фенологія',
-    description: 'Науковий гербарій 24 адаптованих рослин із фільтрами за ґрунтом і світлом та річний календар агротехнічних робіт.',
+    category: 'Флора проєкту',
+    description: 'Колекція 24 відібраних рослинних компонентів проєкту з фільтрами за ґрунтом, світлом та ярусністю.',
     badge: '24 Види'
   },
   {
     id: 'studio',
     path: '/studio',
     number: '05',
-    title: 'Проєктна студія та реалізований кейс',
-    shortTitle: 'Студія & Кейс',
-    category: 'Практика & Креслення',
-    description: 'Інтерактивний 3D-конструктор ділянки та генеральний план реалізованої резиденції «Terra» (Обухівський р-н) із кошторисом.',
+    title: '3D Конструктор ландшафтного простору',
+    shortTitle: '3D Конструктор',
+    category: '3D Моделювання',
+    description: 'Параметричний інтерактивний 3D-конструктор ділянки з вибором рослин, каменю та освітлення.',
     has3D: true,
-    badge: 'Конструктор'
+    badge: '3D Редактор'
   }
 ];
 
-// Helper to look up active module by current pathname
+// Helper to look up active section by current pathname
 export const getModuleByPath = (path: string): CourseModule | undefined => {
   // Direct match
   const direct = COURSE_MODULES.find(m => m.path === path);
   if (direct) return direct;
 
-  // Legacy mappings for backwards-compatible breadcrumbs
+  // Legacy mappings for backwards-compatible redirects
   if (['/principles', '/transitions', '/naturalness', '/color-laboratory'].includes(path)) {
     return COURSE_MODULES.find(m => m.id === 'composition');
   }

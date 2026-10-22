@@ -129,7 +129,7 @@ export const LandscapeBuilder: React.FC<LandscapeBuilderProps> = ({ standalone =
         <div className="border-b border-[#A7B39A]/60 pb-8 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#64765A] mb-2">
-              <span className="px-2 py-0.5 bg-[#EAE4D5] rounded text-[#182C24] font-semibold">Розділ 10</span>
+              <span className="px-2 py-0.5 bg-[#EAE4D5] rounded text-[#182C24] font-semibold">3D Студія</span>
               <span>//</span>
               <span>Інтерактивна 3D Дизайн-студія</span>
             </div>

@@ -78,7 +78,7 @@ export const SimplicityNaturalness: React.FC = () => {
         {/* CHAPTER HERO HEADER */}
         <div className="border-b border-[#A7B39A]/60 pb-10">
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#64765A] mb-3">
-            <span className="px-2 py-0.5 bg-[#EAE4D5] rounded text-[#182C24] font-semibold">Глава 04</span>
+            <span className="px-2 py-0.5 bg-[#EAE4D5] rounded text-[#182C24] font-semibold">Натуралізм</span>
             <span>//</span>
             <span>Філософія натуралізму</span>
           </div>

@@ -66,7 +66,7 @@ export const TransitionComparison: React.FC = () => {
         {/* CHAPTER HERO HEADER */}
         <div className="border-b border-[#A7B39A]/30 pb-10">
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#A7B39A] mb-3">
-            <span className="px-2 py-0.5 bg-[#64765A] rounded text-[#F4F0E6] font-semibold">Глава 03</span>
+            <span className="px-2 py-0.5 bg-[#64765A] rounded text-[#F4F0E6] font-semibold">Екотони</span>
             <span>//</span>
             <span>Просторова безперервність</span>
           </div>
@@ -233,7 +233,7 @@ export const TransitionComparison: React.FC = () => {
         <div className="space-y-6 pt-6 border-t border-[#A7B39A]/20">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
-              Академічна стратифікація
+              Просторова стратифікація
             </span>
             <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#F4F0E6] mt-1">
               Чотиривимірна шкала наростання висот

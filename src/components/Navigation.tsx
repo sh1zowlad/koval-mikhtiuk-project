@@ -35,7 +35,7 @@ export const Navigation: React.FC = () => {
     { path: '/composition', label: 'Композиція' },
     { path: '/spaces-3d', label: '3D Простори' },
     { path: '/atlas', label: 'Ботанічний Атлас' },
-    { path: '/studio', label: 'Студія & Кейс' },
+    { path: '/studio', label: '3D Конструктор' },
   ];
 
   return (

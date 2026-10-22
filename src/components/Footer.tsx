@@ -11,8 +11,8 @@ export const Footer: React.FC = () => {
     { path: '/', label: 'Головна 3D' },
     { path: '/composition', label: 'Теорія та Композиція' },
     { path: '/spaces-3d', label: '3D Інженерні Простори' },
-    { path: '/atlas', label: 'Ботанічний Атлас & Фенологія' },
-    { path: '/studio', label: 'Проєктна Студія & Кейс' },
+    { path: '/atlas', label: 'Ботанічний Атлас' },
+    { path: '/studio', label: '3D Конструктор' },
   ];
 
   return (
