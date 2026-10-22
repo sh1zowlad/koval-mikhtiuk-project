@@ -124,7 +124,7 @@ export const Navigation: React.FC = () => {
         <div className="fixed inset-x-0 top-16 bottom-0 z-30 h-[calc(100dvh-4rem)] bg-[#182C24]/98 backdrop-blur-xl lg:hidden px-4 py-6 overflow-y-auto overscroll-contain border-t border-[#A7B39A]/30 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between text-xs font-mono uppercase tracking-widest text-[#A7B39A] mb-4 pb-2 border-b border-white/10">
-              <span>Архітектурні Розділи</span>
+              <span>Розділи Презентації</span>
               <span className="text-[#AD765B]">TERRA ARCHIVE</span>
             </div>
             <div className="space-y-2 pb-6">
