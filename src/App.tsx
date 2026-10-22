@@ -1,5 +1,5 @@
 import React, { useState, Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { HeroSection } from './components/HeroSection';
 import { CurriculumOverview } from './components/CurriculumOverview';
@@ -67,7 +67,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="min-h-screen bg-[#F4F0E6] text-[#262925] font-sans selection:bg-[#64765A] selection:text-[#F4F0E6] flex flex-col justify-between">
         {/* Top Sticky Navigation Bar */}
         <Navigation />
@@ -234,7 +234,7 @@ export const App: React.FC = () => {
           onSelectCompanion={(comp) => setSelectedPlant(comp)}
         />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
