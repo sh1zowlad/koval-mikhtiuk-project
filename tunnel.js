@@ -18,7 +18,7 @@ async function tryConnect() {
       } else {
         tunnel.close();
       }
-    } catch (e) {
+    } catch {
       // try next candidate
     }
   }

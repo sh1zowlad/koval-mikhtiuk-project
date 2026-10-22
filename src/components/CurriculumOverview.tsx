@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { COURSE_MODULES } from '../data/courseModules';
-import { ArrowUpRight, Compass, Sparkles, BookOpen, Layers } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 export const CurriculumOverview: React.FC = () => {
   return (

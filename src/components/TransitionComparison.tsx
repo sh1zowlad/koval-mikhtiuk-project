@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeftRight, Check, X, Sparkles, Layers, Sliders, Waves, Compass } from 'lucide-react';
+import { ArrowLeftRight, Check, X, Layers, Sliders } from 'lucide-react';
 
 export const TransitionComparison: React.FC = () => {
   const [sliderPos, setSliderPos] = useState<number>(50); // percentage 0 to 100

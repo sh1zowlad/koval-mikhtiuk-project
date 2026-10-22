@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Climber3DCanvas } from './Climber3DCanvas';
 import { Season, ClimberSpecies } from '../types/landscape';
 import { PlantSpecies } from '../types/botanical';
-import { AlertTriangle, Layers, Compass, Wind, ShieldCheck, Sun, Sparkles } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react';
 
 interface ClimberSectionProps {
   onSelectPlant: (plant: PlantSpecies) => void;
@@ -12,7 +12,7 @@ const CLIMBER_SPECIES: ClimberSpecies[] = [
   {
     id: 'clematis-viticella',
     botanicalName: 'Clematis viticella',
-    commonName: 'Клематіс фіолетовий',
+    commonName: 'Ломиніс фіолетовий (клематіс)',
     mechanism: 'Черешкові вусики (обвивання листком)',
     supportType: 'Тонкі дротяні шпалери, сітка діаметром < 1.5 см',
     matureHeight: '3.0–4.0 м',

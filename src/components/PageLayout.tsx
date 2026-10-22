@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { COURSE_MODULES, getModuleByPath, getPrevNextModules } from '../data/courseModules';
-import { ArrowLeft, ArrowRight, Home, Compass, BookOpen, Layers } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Home, Compass, BookOpen } from 'lucide-react';
 
 interface PageLayoutProps {
   children: React.ReactNode;

@@ -32,8 +32,6 @@ export const Climber3DCanvas: React.FC<Climber3DCanvasProps> = ({
   const isVisibleRef = useRef<boolean>(true);
 
   useEffect(() => {
-    if (!webGlSupported) return;
-
     const container = containerRef.current;
     if (!container) return;
 
@@ -57,7 +55,7 @@ export const Climber3DCanvas: React.FC<Climber3DCanvasProps> = ({
         powerPreference: 'high-performance'
       });
     } catch {
-      setWebGlSupported(false);
+      queueMicrotask(() => setWebGlSupported(false));
       return;
     }
 

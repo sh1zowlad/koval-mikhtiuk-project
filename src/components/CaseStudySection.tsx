@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CASE_STUDY_DATA, CaseStudyHotspot } from '../data/caseStudyData';
-import { Compass, Sparkles, CheckCircle2, ShieldCheck, MapPin, Layers, Ruler } from 'lucide-react';
+import { Compass, Sparkles } from 'lucide-react';
 
 export const CaseStudySection: React.FC = () => {
   const [selectedHotspot, setSelectedHotspot] = useState<CaseStudyHotspot>(CASE_STUDY_DATA.hotspots[0]);

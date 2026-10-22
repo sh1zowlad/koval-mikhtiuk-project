@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { COLOR_PALETTES } from '../data/colorPalettesData';
 import { ColorPalette } from '../types/landscape';
 import { PlantSpecies } from '../types/botanical';
-import { Palette, Calendar, Sparkles, Sun, Droplets, Eye, Layers } from 'lucide-react';
+import { Palette, Calendar } from 'lucide-react';
 
 interface ColorLaboratoryProps {
   onSelectPlant: (plant: PlantSpecies) => void;

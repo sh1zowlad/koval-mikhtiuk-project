@@ -99,8 +99,6 @@ export const MasterGardenCanvas: React.FC<MasterGardenCanvasProps> = ({ onSelect
   }, []);
 
   useEffect(() => {
-    if (!webGlAvailable) return;
-
     const container = containerRef.current;
     if (!container) return;
 
@@ -129,7 +127,7 @@ export const MasterGardenCanvas: React.FC<MasterGardenCanvasProps> = ({ onSelect
         powerPreference: 'high-performance'
       });
     } catch {
-      setWebGlAvailable(false);
+      queueMicrotask(() => setWebGlAvailable(false));
       return;
     }
 

@@ -5,7 +5,7 @@ import { COLOR_PALETTES } from '../data/colorPalettesData';
 import { RETAINING_WALLS_DATA } from '../data/retainingWallData';
 import { PLANTS_DATABASE } from '../data/plantsData';
 import { 
-  RotateCcw, Copy, Check, Info, FileSpreadsheet, Download, 
+  RotateCcw, Copy, Check, FileSpreadsheet, Download, 
   Layers, Compass, Trees, Flower2, ShieldAlert, Sparkles, X, Printer
 } from 'lucide-react';
 

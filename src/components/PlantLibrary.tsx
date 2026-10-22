@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { PLANTS_DATABASE } from '../data/plantsData';
 import { PlantSpecies, PlantCategory } from '../types/botanical';
-import { Search, ArrowUpRight, BookOpen, X, Sparkles, Sprout, ShieldCheck, Sun, Layers, AlertTriangle } from 'lucide-react';
+import { Search, ArrowUpRight, BookOpen, X, Sprout, ShieldCheck, Layers, AlertTriangle } from 'lucide-react';
 
 interface PlantLibraryProps {
   onSelectPlant: (plant: PlantSpecies) => void;

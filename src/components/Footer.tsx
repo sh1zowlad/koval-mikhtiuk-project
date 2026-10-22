@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
         {/* Minimal Copyright Row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#A7B39A]/80">
           <div>
-            © {new Date().getFullYear()} KOVAL MIKHTIUK PROJECT. Всі права захищено.
+            © 2026 KOVAL MIKHTIUK PROJECT. Всі права захищено.
           </div>
           <div className="text-[11px] text-[#A7B39A]/60">
             Ландшафтна архітектура // 3D WebGL // Ботаніка

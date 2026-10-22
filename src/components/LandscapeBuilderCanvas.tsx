@@ -38,8 +38,6 @@ export const LandscapeBuilderCanvas: React.FC<LandscapeBuilderCanvasProps> = ({ 
 
   // Initialize Three.js Scene
   useEffect(() => {
-    if (!webGlSupported) return;
-
     const container = containerRef.current;
     if (!container) return;
 
@@ -64,7 +62,7 @@ export const LandscapeBuilderCanvas: React.FC<LandscapeBuilderCanvasProps> = ({ 
         powerPreference: 'high-performance'
       });
     } catch {
-      setWebGlSupported(false);
+      queueMicrotask(() => setWebGlSupported(false));
       return;
     }
 

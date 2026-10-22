@@ -4,7 +4,7 @@ import { RETAINING_WALLS_DATA } from '../data/retainingWallData';
 import { RetainingWallId } from '../types/landscape';
 import { PlantSpecies } from '../types/botanical';
 import { PLANTS_DATABASE } from '../data/plantsData';
-import { ShieldAlert, Layers, ShieldCheck, Ruler, ArrowRight, Compass } from 'lucide-react';
+import { ShieldAlert } from 'lucide-react';
 
 interface RetainingWallSectionProps {
   onSelectPlant: (plant: PlantSpecies) => void;

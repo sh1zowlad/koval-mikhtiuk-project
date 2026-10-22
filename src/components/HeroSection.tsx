@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MasterGardenCanvas } from './MasterGardenCanvas';
 import { PlantSpecies } from '../types/botanical';
-import { ArrowDown, ArrowRight, Compass, Sparkles } from 'lucide-react';
+import { ArrowRight, Compass, Sparkles } from 'lucide-react';
 
 interface HeroSectionProps {
   onSelectPlant: (plant: PlantSpecies) => void;

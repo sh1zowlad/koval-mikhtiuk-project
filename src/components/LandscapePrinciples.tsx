@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { PRINCIPLES_DATABASE } from '../data/principlesData';
 import { LandscapePrinciple } from '../types/landscape';
-import { 
-  Crosshair, Compass, CheckCircle2, AlertOctagon, 
-  Layers, Eye, ArrowRight, Sparkles, BookOpen, Scale
-} from 'lucide-react';
+import { Crosshair, AlertOctagon, Layers, Sparkles } from 'lucide-react';
 
 export const LandscapePrinciples: React.FC = () => {
   const [selectedPrinciple, setSelectedPrinciple] = useState<LandscapePrinciple>(PRINCIPLES_DATABASE[0]);

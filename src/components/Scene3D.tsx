@@ -50,8 +50,6 @@ export const Scene3D: React.FC<Scene3DProps> = ({
   const isVisibleRef = useRef<boolean>(true);
 
   useEffect(() => {
-    if (!hasWebGL) return;
-
     const container = containerRef.current;
     if (!container) return;
 
@@ -76,7 +74,7 @@ export const Scene3D: React.FC<Scene3DProps> = ({
         powerPreference: 'high-performance'
       });
     } catch {
-      setHasWebGL(false);
+      queueMicrotask(() => setHasWebGL(false));
       return;
     }
 

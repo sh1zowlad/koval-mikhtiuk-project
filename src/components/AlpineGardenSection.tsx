@@ -4,7 +4,7 @@ import { ALPINE_STYLES_DATA, ALPINE_CONSTRUCTION_LAYERS } from '../data/alpineSt
 import { AlpineGardenStyleId } from '../types/landscape';
 import { PlantSpecies } from '../types/botanical';
 import { PLANTS_DATABASE } from '../data/plantsData';
-import { Layers, Info, Mountain, Compass, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Layers, Info } from 'lucide-react';
 
 interface AlpineGardenSectionProps {
   onSelectPlant: (plant: PlantSpecies) => void;
@@ -15,15 +15,6 @@ export const AlpineGardenSection: React.FC<AlpineGardenSectionProps> = ({ onSele
   const [activeLayerStep, setActiveLayerStep] = useState<number>(4);
 
   const activeStyle = ALPINE_STYLES_DATA.find(s => s.id === selectedStyleId) || ALPINE_STYLES_DATA[0];
-
-  const alpinePlants = [
-    PLANTS_DATABASE.find(p => p.id === 'sempervivum-tectorum'),
-    PLANTS_DATABASE.find(p => p.id === 'saxifraga-paniculata'),
-    PLANTS_DATABASE.find(p => p.id === 'sedum-spurium'),
-    PLANTS_DATABASE.find(p => p.id === 'thymus-serpyllum'),
-    PLANTS_DATABASE.find(p => p.id === 'armeria-maritima'),
-    PLANTS_DATABASE.find(p => p.id === 'phlox-subulata'),
-  ].filter(Boolean) as PlantSpecies[];
 
   const stoneRules = [
     {
@@ -166,14 +157,29 @@ export const AlpineGardenSection: React.FC<AlpineGardenSectionProps> = ({ onSele
 
               <div className="pt-3 border-t border-[#A7B39A]/20">
                 <span className="text-[10px] font-mono uppercase text-[#A7B39A] block mb-2">
-                  Ключова рослинність стилю:
+                  Ключова рослинність стилю (натисніть для досьє):
                 </span>
                 <div className="flex flex-wrap gap-1.5">
-                  {activeStyle.keySpecies.map((sp, idx) => (
-                    <span key={idx} className="px-2.5 py-1 bg-[#182C24] rounded-md text-[11px] font-mono text-[#A7B39A] border border-[#A7B39A]/20">
-                      {sp}
-                    </span>
-                  ))}
+                  {activeStyle.keySpecies.map((sp, idx) => {
+                    const matching = PLANTS_DATABASE.find(p => 
+                      p.botanicalName.toLowerCase().includes(sp.toLowerCase()) ||
+                      sp.toLowerCase().includes(p.botanicalName.toLowerCase())
+                    );
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => matching && onSelectPlant(matching)}
+                        className={`px-2.5 py-1 rounded-md text-[11px] font-mono transition-colors text-left flex items-center gap-1.5 ${
+                          matching
+                            ? 'bg-[#182C24] hover:bg-[#64765A] text-[#F4F0E6] border border-[#A7B39A]/30 cursor-pointer'
+                            : 'bg-[#182C24] text-[#A7B39A] border border-[#A7B39A]/20 cursor-default'
+                        }`}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: matching?.colorHex || '#AD765B' }} />
+                        <span>{sp}</span>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             </div>

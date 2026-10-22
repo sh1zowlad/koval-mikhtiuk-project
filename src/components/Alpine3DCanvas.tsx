@@ -36,8 +36,6 @@ export const Alpine3DCanvas: React.FC<Alpine3DCanvasProps> = ({ currentStyle, on
 
   // 1. Core Scene Lifecycle
   useEffect(() => {
-    if (!webGlSupported) return;
-
     const container = containerRef.current;
     if (!container) return;
 
@@ -64,7 +62,7 @@ export const Alpine3DCanvas: React.FC<Alpine3DCanvasProps> = ({ currentStyle, on
         powerPreference: 'high-performance'
       });
     } catch {
-      setWebGlSupported(false);
+      queueMicrotask(() => setWebGlSupported(false));
       return;
     }
 

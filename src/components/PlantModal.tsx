@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { PlantSpecies } from '../types/botanical';
 import { PLANTS_DATABASE } from '../data/plantsData';
-import { X, Sun, Droplets, Layers, Calendar, Scissors, ShieldAlert, Sparkles, Sprout, Compass } from 'lucide-react';
+import { X, Sun, Droplets, Layers, Calendar, Scissors, ShieldAlert, Sparkles, Sprout } from 'lucide-react';
 
 interface PlantModalProps {
   plant: PlantSpecies | null;

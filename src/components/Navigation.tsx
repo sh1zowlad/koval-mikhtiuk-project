@@ -21,8 +21,10 @@ export const Navigation: React.FC = () => {
 
   // Close menus on route change
   useEffect(() => {
-    setMobileMenuOpen(false);
-    setDropdownOpen(false);
+    queueMicrotask(() => {
+      setMobileMenuOpen(false);
+      setDropdownOpen(false);
+    });
   }, [location.pathname]);
 
   const toggleSound = () => {

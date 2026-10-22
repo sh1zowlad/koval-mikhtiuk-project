@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckSquare, Square, Sparkles, AlertCircle, ShieldCheck, Scale, Check, X, Compass, Layers } from 'lucide-react';
+import { CheckSquare, Square } from 'lucide-react';
 
 export const SimplicityNaturalness: React.FC = () => {
   const [checklist, setChecklist] = useState<{ id: string; label: string; explanation: string; checked: boolean }[]>([

@@ -43,8 +43,6 @@ export const RetainingWall3DCanvas: React.FC<RetainingWall3DCanvasProps> = ({
   const pointerDownPos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
   useEffect(() => {
-    if (!webGlSupported) return;
-
     const container = containerRef.current;
     if (!container) return;
 
@@ -68,7 +66,7 @@ export const RetainingWall3DCanvas: React.FC<RetainingWall3DCanvasProps> = ({
         powerPreference: 'high-performance'
       });
     } catch {
-      setWebGlSupported(false);
+      queueMicrotask(() => setWebGlSupported(false));
       return;
     }
 
