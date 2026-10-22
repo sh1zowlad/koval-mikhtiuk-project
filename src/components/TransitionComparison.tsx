@@ -1,111 +1,122 @@
 import React, { useState } from 'react';
-import { ArrowLeftRight, Check, X, Layers, Sliders } from 'lucide-react';
+import { Sliders, Check } from 'lucide-react';
 
 export const TransitionComparison: React.FC = () => {
-  const [sliderPos, setSliderPos] = useState<number>(50); // percentage 0 to 100
-  const [activeAnnotation, setActiveAnnotation] = useState<number>(0);
+  const [sliderPosition, setSliderPosition] = useState<number>(50);
+  const [isDragging, setIsDragging] = useState<boolean>(false);
 
-  const annotations = [
+  const handleSliderMove = (clientX: number, rect: DOMRect) => {
+    const x = clientX - rect.left;
+    const percentage = Math.max(5, Math.min(95, (x / rect.width) * 100));
+    setSliderPosition(percentage);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    handleSliderMove(e.touches[0].clientX, rect);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDragging && e.buttons !== 1) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    handleSliderMove(e.clientX, rect);
+  };
+
+  const comparisonPoints = [
     {
-      title: 'Ярусність і плавна градація висот',
-      before: 'Скелястий урвищний перепад: 10 см газону впритул стикаються з 2-метровою суцільною стіною туй без жодного проміжного ярусу.',
-      after: 'Чотириярусна висхідна градація: Чебрець (5 см) → Манжетка (35 см) → Вертикалі шавлії (60 см) → Ажурна береза (5 м).',
-      why: 'Знімає оптичне розсікання ділянки та дозволяє косому сонячному промінню рівномірно освітлювати нижній ярус без затінення.'
+      label: 'Межа з мощенням',
+      before: 'Жорсткий бетонний бордюр, різкий обрив газону під прямим кутом без перехідної зони.',
+      after: 'Живий наплив: очитки, чебрець та сеслерія переливаються через край каменю, розмиваючи геометрію доріжки.'
     },
     {
-      title: 'Пом\'якшення крайок і живі шви',
-      before: 'Гострий прямий кут 90° бетонної стінки, залишений повністю голим над чорною землею.',
-      after: 'Дзвоники Пожарського та повзучий флокс спадають каскадом з кам\'яної полиці, стираючи межу між рукотворним і природним.',
-      why: 'У природних біотопах скельні виступи миттєво обживаються настінними рослинами; живий каскад органічно інтегрує мур у рельєф.'
+      label: 'Контакт із парканом',
+      before: 'Гола площина огорожі з прямолінійним рядом однакових туй, що візуально стискає простір ділянки.',
+      after: 'Багатоярусні куліси: виткі ліани по шпалері, підбиті масивом чагарників і хмарами ковили з кишенями глибини.'
     },
     {
-      title: 'Геометрія стежки та природний потік',
-      before: 'Прямолінійний бетонний тротуар, що розсікає простір на дві ізольовані половини і спонукає до швидкого транзиту.',
-      after: 'Плавна серпантинна доріжка з митого вапнякового гравію, що сповільнює рух і поступово розкриває видові точки.',
-      why: 'Криволінійні стежки повторюють ізогіпси схилу, що унеможливлює повздовжній змив ґрунту під час літніх дощів.'
-    },
-    {
-      title: 'Групування: Хаос проти матричних хвиль',
-      before: '«Синдром поштової марки»: 20 поодиноких різних рослин, хаотично розтиканих по корі чи чорнозему.',
-      after: 'Взаємопроникні хвилі: Сеслерія осіння утворює суцільний живий смарагдовий килим, прошитий повторами груп шавлії.',
-      why: 'Природні рослинні угруповання ростуть переплетеними популяціями; матриця виключає відкритий ґрунт і блокує ріст бур\'янів на 90%.'
+      label: 'Структура посадки',
+      before: 'Штучні клумби правильної форми з відкритою мульчею, що потребує щотижневого прополювання.',
+      after: 'Взаємопроникна матриця: сеслерія утворює суцільний живий килим, прошитий повторами груп шавлії.'
     }
   ];
 
   const stratificationTiers = [
     {
-      tier: 'Ярус 1: 0 – 15 см',
+      step: 'ЯРУС I',
+      height: '0 – 15 см',
       title: 'Ґрунтопокривний мікро-шар',
-      plants: 'Thymus serpyllum (Чебрець), Sedum acre (Очиток), Sagina subulata (Моховинка)',
-      role: 'Запечатує ґрунт від пересихання, замінює відкриту мульчу, пом\'якшує стики з плитняком доріжки.'
+      plants: 'Thymus serpyllum, Sedum acre, Sagina subulata',
+      desc: 'Запечатує ґрунт від пересихання, замінює синтетичну мульчу та м\'яко напливає на шви мощення.'
     },
     {
-      tier: 'Ярус 2: 20 – 45 см',
+      step: 'ЯРУС II',
+      height: '20 – 45 см',
       title: 'Подушкові формотворчі багаторічники',
-      plants: 'Alchemilla mollis (Манжетка м\'яка), Geranium macrorrhizum (Герань), Sesleria autumnalis',
-      role: 'Створює об\'ємну масу, вловлює краплі роси, переводить погляд від горизонталі землі до вертикалі.'
+      plants: 'Alchemilla mollis, Geranium macrorrhizum, Sesleria',
+      desc: 'Створює об\'ємну масу, вловлює краплі роси та плавно переводить погляд від горизонталі землі до вертикалі.'
     },
     {
-      tier: 'Ярус 3: 50 – 110 см',
+      step: 'ЯРУС III',
+      height: '50 – 110 см',
       title: 'Вертикальні ритмічні спалахи',
-      plants: 'Salvia nemorosa (Шавлія дібровна), Stipa tenuissima (Ковила), Echinacea purpurea',
-      role: 'Додає сезонну динаміку, вертикальні графічні свічки суцвіть, шелест вітру та рух у просторі.'
+      plants: 'Salvia nemorosa, Stipa tenuissima, Echinacea',
+      desc: 'Додає сезонну динаміку, вертикальні графічні свічки суцвіть, шелест вітру та кінетичний рух.'
     },
     {
-      tier: 'Ярус 4: 2.5 – 6+ м',
-      title: 'Ажурний полог та вертикальний якір',
-      plants: 'Betula utilis jacquemontii (Береза Жакмона), Pinus mugo (Сосна гірська)',
-      role: 'Дає розсіяну тінь для нижніх ярусів, фільтрує вітер, забезпечує архітектурну присутність взимку.'
+      step: 'ЯРУС IV',
+      height: '2.5 – 6+ м',
+      title: 'Ажурний полог та куліси',
+      plants: 'Betula utilis jacquemontii, Pinus mugo',
+      desc: 'Створює розсіяну тінь для нижніх ярусів, захищає від вітру та формує архітектурну присутність узимку.'
     }
   ];
 
   return (
-    <div className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#182C24] text-[#F4F0E6]">
-      <div className="max-w-7xl mx-auto space-y-16">
+    <div className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#182C24] text-[#F4F0E6]">
+      <div className="max-w-7xl mx-auto space-y-20">
         
-        {/* CHAPTER HERO HEADER */}
-        <div className="border-b border-[#A7B39A]/30 pb-10">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#A7B39A] mb-3">
-            <span className="px-2 py-0.5 bg-[#64765A] rounded text-[#F4F0E6] font-semibold">Екотони</span>
+        {/* EDITORIAL HEADER — PURE ARCHITECTURAL TYPOGRAPHY */}
+        <div className="border-b border-[#A7B39A]/20 pb-12">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#A7B39A] mb-4">
+            <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
+            <span>Просторова динаміка</span>
             <span>//</span>
-            <span>Просторова безперервність</span>
+            <span>Безшовне злиття середовищ</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-serif font-bold text-[#F4F0E6] leading-tight">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-[#F4F0E6] leading-[1.08] max-w-4xl">
             Плавні переходи: <br />
-            <span className="italic font-normal text-[#A7B39A]">Екотони та мистецтво безшовного злиття.</span>
+            <span className="italic font-normal text-[#A7B39A]">Екотони та мистецтво безшовності.</span>
           </h1>
 
-          <p className="mt-4 text-base sm:text-xl text-[#D6D0C3] max-w-3xl leading-relaxed font-light">
-            У природі не буває прямокутних меж. Ліс не врізається в луку стіною — між ними завжди існує узлісся. Ландшафтний архітектор створює саме такі м'які перехідні зони, розмиваючи кордони між рукотворним і природним.
+          <p className="mt-6 text-lg sm:text-xl text-[#D6D0C3] max-w-3xl leading-relaxed font-light font-sans">
+            У дикій природі не існує прямокутних кордонів. Ліс не врізається в луку глухою стіною — між ними завжди живе узлісся. Натуралістичний ландшафт будується саме через такі м'які буферні зони, розмиваючи межу між архітектурою та природою.
           </p>
-
-
         </div>
 
         {/* SECTION 1: INTERACTIVE BEFORE/AFTER SLIDER */}
-        <div className="space-y-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className="space-y-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#A7B39A]/20 pb-6">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
-                Інтерактивне порівняння просторових підходів
+                Інтерактивне порівняння
               </span>
               <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#F4F0E6] mt-1">
-                Грубі штучні кордони проти природного екотону
+                Штучні кордони проти природного екотону
               </h2>
             </div>
             <div className="flex items-center gap-2 text-xs font-mono text-[#A7B39A]">
               <Sliders className="w-4 h-4 text-[#AD765B]" />
-              <span>Тягніть повзунок по центру ліворуч/праворуч</span>
+              <span>Тягніть розділювач ліворуч або праворуч</span>
             </div>
           </div>
 
-          <div className="relative w-full h-[460px] sm:h-[520px] rounded-2xl overflow-hidden border border-[#A7B39A]/40 shadow-2xl bg-[#262925] select-none">
+          <div className="relative w-full h-[440px] sm:h-[500px] rounded-3xl overflow-hidden border border-[#A7B39A]/30 shadow-2xl bg-[#262925] select-none">
             {/* AFTER: NATURALISTIC CONTINUITY (Underneath) */}
             <div className="absolute inset-0 bg-[#25392D] flex flex-col justify-between p-6 sm:p-8">
               <div className="flex items-center justify-end">
                 <span className="px-3.5 py-1 bg-[#22422C] text-[#F4F0E6] text-xs font-mono uppercase tracking-wider rounded-full border border-[#A7B39A]/50 flex items-center gap-1.5 shadow-sm">
-                  <Check className="w-3.5 h-3.5 text-[#A7B39A]" /> Природна екотонна градація (Після)
+                  <Check className="w-3.5 h-3.5 text-[#A7B39A]" /> Природний екотон (Концепція)
                 </span>
               </div>
 
@@ -113,124 +124,107 @@ export const TransitionComparison: React.FC = () => {
               <div className="my-auto max-w-3xl mx-auto w-full">
                 <svg viewBox="0 0 800 320" className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
                   <path d="M 0 160 Q 200 120 400 150 T 800 130 L 800 320 L 0 320 Z" fill="#2E4837" />
-                  <path d="M 0 210 Q 300 180 600 220 L 800 200 L 800 320 L 0 320 Z" fill="#3D5A47" />
+                  <path d="M 0 210 Q 250 170 500 200 T 800 180 L 800 320 L 0 320 Z" fill="#3D5A45" />
+                  <path d="M 0 250 Q 200 230 450 245 T 800 235 L 800 320 L 0 320 Z" fill="#4E6E56" />
 
-                  {/* Sinuous curved gravel path */}
-                  <path d="M 50 320 C 250 290, 200 220, 450 200 C 650 180, 600 140, 750 110" fill="none" stroke="#D6D0C3" strokeWidth="26" strokeLinecap="round" opacity="0.85" />
-                  <path d="M 50 320 C 250 290, 200 220, 450 200 C 650 180, 600 140, 750 110" fill="none" stroke="#FAF8F3" strokeWidth="3" strokeDasharray="8, 12" opacity="0.6" />
+                  {/* Overhanging plants on pathway edge */}
+                  <path d="M 50 255 Q 80 230 110 260 T 160 250 T 220 265" fill="none" stroke="#A7B39A" strokeWidth="6" strokeLinecap="round" opacity="0.9" />
+                  <path d="M 280 250 Q 320 225 360 255 T 420 248" fill="none" stroke="#C4A482" strokeWidth="5" strokeLinecap="round" opacity="0.85" />
+                  <path d="M 500 245 Q 540 220 580 250 T 650 242" fill="none" stroke="#8A9A86" strokeWidth="7" strokeLinecap="round" opacity="0.9" />
 
-                  {/* Softened Stone Terrace with cascading plants */}
-                  <rect x="240" y="165" width="220" height="42" rx="4" fill="#8C8478" />
-                  <path d="M 230 180 Q 260 215 290 185 T 350 215 T 410 180 T 470 215" fill="#7C89B8" opacity="0.85" />
-                  <path d="M 250 185 Q 290 220 330 190 T 400 220 T 460 190" fill="#B97799" opacity="0.8" />
+                  {/* Stone path seamless blending */}
+                  <path d="M 0 280 Q 400 270 800 280 L 800 320 L 0 320 Z" fill="#D6D0C3" opacity="0.85" />
 
-                  {/* Layered Grasses & Perennials */}
-                  <ellipse cx="160" cy="275" rx="90" ry="25" fill="#8F6593" opacity="0.75" />
-                  <ellipse cx="320" cy="240" rx="110" ry="30" fill="#9EA853" opacity="0.8" />
-                  <line x1="280" y1="230" x2="280" y2="185" stroke="#4C3B71" strokeWidth="5" strokeLinecap="round" />
-                  <line x1="295" y1="235" x2="295" y2="190" stroke="#4C3B71" strokeWidth="5" strokeLinecap="round" />
-                  <line x1="340" y1="225" x2="340" y2="175" stroke="#4C3B71" strokeWidth="5" strokeLinecap="round" />
-                  <line x1="360" y1="230" x2="360" y2="180" stroke="#4C3B71" strokeWidth="5" strokeLinecap="round" />
-
-                  {/* Specimen Birch with open airy canopy */}
-                  <circle cx="680" cy="110" r="46" fill="#EAE6DC" opacity="0.85" />
-                  <circle cx="680" cy="110" r="38" fill="#F4F0E6" opacity="0.6" />
-                  <line x1="680" y1="110" x2="680" y2="210" stroke="#F4F0E6" strokeWidth="4" />
+                  {/* Text Annotations */}
+                  <text x="40" y="70" fill="#F4F0E6" fontSize="14" fontFamily="serif" fontWeight="bold">Безшовний екотон 4 ярусів</text>
+                  <text x="40" y="95" fill="#A7B39A" fontSize="11" fontFamily="monospace">М'який наплив трав на мощення без різких бордюрів</text>
                 </svg>
               </div>
 
-              <div className="flex items-center justify-between text-xs font-mono text-[#A7B39A]">
-                <span>Багатоярусна гармонійна градація</span>
-                <span>Матрична посадка // Живі пом'якшені краї</span>
+              <div className="flex items-center justify-between text-[11px] font-mono text-[#A7B39A] border-t border-white/10 pt-3">
+                <span>Екотонний перехід: розмиття меж</span>
+                <span>Ярусність 0 – 350 см</span>
               </div>
             </div>
 
-            {/* BEFORE: HARSH BOUNDARY (Clipped on top based on sliderPos) */}
-            <div
-              className="absolute inset-y-0 left-0 overflow-hidden bg-[#38332E] border-r-2 border-[#AD765B] shadow-2xl p-6 sm:p-8 flex flex-col justify-between"
-              style={{ width: `${sliderPos}%` }}
+            {/* BEFORE: ARTIFICIAL GEOMETRY (Clipped Over Top) */}
+            <div 
+              className="absolute inset-0 bg-[#3A3835] flex flex-col justify-between p-6 sm:p-8 border-r-2 border-[#F4F0E6]"
+              style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
             >
               <div className="flex items-center justify-start">
-                <span className="px-3.5 py-1 bg-[#9E4733] text-[#F4F0E6] text-xs font-mono uppercase tracking-wider rounded-full flex items-center gap-1.5 shadow-sm">
-                  <X className="w-3.5 h-3.5" /> Традиційний монотонний благоустрій (До)
+                <span className="px-3.5 py-1 bg-[#4A322D] text-[#F4F0E6] text-xs font-mono uppercase tracking-wider rounded-full border border-red-500/40 shadow-sm">
+                  Штучна геометрія (Помилка)
                 </span>
               </div>
 
-              {/* Vector Graphic for BEFORE (Monotonous line, harsh walls) */}
+              {/* Vector Architecture Graphic for BEFORE */}
               <div className="my-auto max-w-3xl mx-auto w-full">
                 <svg viewBox="0 0 800 320" className="w-full h-auto" preserveAspectRatio="xMidYMid meet">
-                  <rect x="0" y="210" width="800" height="110" fill="#3D503A" />
-                  <rect x="50" y="235" width="700" height="24" fill="#696561" />
-                  <rect x="240" y="150" width="220" height="60" fill="#5E5852" stroke="#2B2825" strokeWidth="2" />
+                  <rect x="0" y="80" width="800" height="130" fill="#2D4030" />
+                  <line x1="0" y1="210" x2="800" y2="210" stroke="#8A3324" strokeWidth="8" />
+                  <rect x="0" y="214" width="800" height="106" fill="#A39E93" />
                   
-                  {/* Harsh Thuja wall hedge */}
-                  <polygon points="560,210 575,80 590,210" fill="#1C3823" />
-                  <polygon points="590,210 605,80 620,210" fill="#1C3823" />
-                  <polygon points="620,210 635,80 650,210" fill="#1C3823" />
-                  <polygon points="650,210 665,80 680,210" fill="#1C3823" />
-                  <polygon points="680,210 695,80 710,210" fill="#1C3823" />
+                  {/* Artificial grid of isolated tufts */}
+                  <circle cx="120" cy="150" r="18" fill="#4B6E4A" />
+                  <circle cx="280" cy="150" r="18" fill="#4B6E4A" />
+                  <circle cx="440" cy="150" r="18" fill="#4B6E4A" />
+                  <circle cx="600" cy="150" r="18" fill="#4B6E4A" />
+
+                  <text x="40" y="50" fill="#F4F0E6" fontSize="14" fontFamily="serif" fontWeight="bold">Жорсткі неприродні межі</text>
+                  <text x="40" y="75" fill="#E5A496" fontSize="11" fontFamily="monospace">Прямокутний бордюр та ізольовані одиночні посадки</text>
                 </svg>
               </div>
 
-              <div className="flex items-center justify-between text-xs font-mono text-[#D6D0C3]">
-                <span>Прямі кути 90° та монотонний «паркан»</span>
-                <span>Різке зіткнення зон без проміжного ярусу</span>
+              <div className="flex items-center justify-between text-[11px] font-mono text-[#D6D0C3]/70 border-t border-white/10 pt-3">
+                <span>Різкий зріз 90°</span>
+                <span>Нульова взаємодія елементів</span>
               </div>
             </div>
 
-            {/* Draggable Divider Handle */}
-            <input
-              type="range"
-              min="5"
-              max="95"
-              value={sliderPos}
-              onChange={(e) => setSliderPos(Number(e.target.value))}
-              className="absolute inset-0 opacity-0 cursor-ew-resize w-full h-full z-30"
-              aria-label="Порівняти стан До та Після"
-            />
-            <div
-              className="absolute top-0 bottom-0 pointer-events-none z-20 flex flex-col items-center justify-center"
-              style={{ left: `${sliderPos}%` }}
+            {/* Drag Handle Bar */}
+            <div 
+              className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-20 shadow-[0_0_15px_rgba(0,0,0,0.6)] flex items-center justify-center pointer-events-none"
+              style={{ left: `${sliderPosition}%` }}
             >
-              <div className="w-8 h-8 rounded-full bg-[#AD765B] text-[#F4F0E6] flex items-center justify-center shadow-2xl border-2 border-[#F4F0E6]">
-                <ArrowLeftRight className="w-4 h-4" />
+              <div className="w-10 h-10 rounded-full bg-[#182C24] border-2 border-white flex items-center justify-center text-white shadow-xl pointer-events-auto cursor-ew-resize hover:scale-110 transition-transform">
+                <Sliders className="w-4 h-4 text-[#AD765B]" />
               </div>
             </div>
+
+            {/* Interaction Click/Drag Capture Surface */}
+            <div 
+              className="absolute inset-0 z-10 cursor-ew-resize"
+              onMouseDown={() => setIsDragging(true)}
+              onMouseUp={() => setIsDragging(false)}
+              onMouseLeave={() => setIsDragging(false)}
+              onMouseMove={handleMouseMove}
+              onTouchMove={handleTouchMove}
+            />
           </div>
 
-          {/* 4 Comparative Critical Nodes */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-            {annotations.map((item, idx) => (
-              <div
-                key={idx}
-                onClick={() => setActiveAnnotation(idx)}
-                className={`p-5 rounded-2xl border cursor-pointer transition-all ${
-                  activeAnnotation === idx
-                    ? 'bg-white/10 border-[#AD765B] ring-1 ring-[#AD765B]'
-                    : 'bg-white/5 border-[#A7B39A]/20 hover:bg-white/10'
-                }`}
-              >
-                <div className="text-xs font-mono text-[#AD765B] mb-1 font-bold">
-                  Вузол 0{idx + 1}
+          {/* Editorial Comparative Points — Clean horizontal hairline dividers, NO boxed cards */}
+          <div className="divide-y divide-[#A7B39A]/15 border-t border-b border-[#A7B39A]/15">
+            {comparisonPoints.map((item, idx) => (
+              <div key={idx} className="py-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+                <div className="md:col-span-3 text-xs font-mono text-[#AD765B] font-bold uppercase tracking-wider">
+                  0{idx + 1}. {item.label}
                 </div>
-                <h4 className="text-base font-serif font-bold text-[#F4F0E6] mb-2">
-                  {item.title}
-                </h4>
-                <div className="space-y-2 text-xs">
-                  <div className="text-red-300/90 pl-3 border-l border-red-500/50">
-                    <strong>До:</strong> {item.before}
-                  </div>
-                  <div className="text-emerald-300 pl-3 border-l border-emerald-500/50">
-                    <strong>Після:</strong> {item.after}
-                  </div>
+                <div className="md:col-span-4 text-xs font-mono text-[#D88C78]/90 leading-relaxed">
+                  <span className="block text-[10px] text-red-400 uppercase font-bold tracking-wider mb-1">Помилка:</span>
+                  {item.before}
+                </div>
+                <div className="md:col-span-5 text-sm text-[#D6D0C3] font-sans font-light leading-relaxed">
+                  <span className="block text-[10px] text-[#A7B39A] font-mono uppercase font-bold tracking-wider mb-1">Рішення проєкту:</span>
+                  {item.after}
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* SECTION 2: 4-TIER VEGETATION STRATIFICATION */}
-        <div className="space-y-6 pt-6 border-t border-[#A7B39A]/20">
+        {/* SECTION 2: 4-TIER STRATIFICATION — ELEGANT ARCHITECTURAL DIVIDERS */}
+        <div className="space-y-8 pt-8 border-t border-[#A7B39A]/20">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
               Просторова стратифікація
@@ -238,29 +232,31 @@ export const TransitionComparison: React.FC = () => {
             <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#F4F0E6] mt-1">
               Чотиривимірна шкала наростання висот
             </h2>
-            <p className="mt-2 text-sm text-[#D6D0C3] max-w-2xl leading-relaxed">
-              Градієнт висот гарантує, що кожна рослина отримує необхідну інсоляцію, а простір сприймається як єдиний безперервний живий рельєф.
+            <p className="mt-2 text-base text-[#D6D0C3] max-w-2xl leading-relaxed font-light">
+              Градієнт висот гарантує, що кожна рослина отримує оптимальну інсоляцію, а простір сприймається як єдиний безперервний живий рельєф.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {stratificationTiers.map((tier, idx) => (
-              <div key={idx} className="p-6 bg-white/5 rounded-2xl border border-[#A7B39A]/20 space-y-4">
-                <div className="flex items-center justify-between text-xs font-mono text-[#AD765B]">
-                  <span>{tier.tier}</span>
-                  <Layers className="w-4 h-4 text-[#A7B39A]" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-serif font-bold text-[#F4F0E6]">
+          {/* Clean Horizontal Timeline / Table — NO CARD BOXES */}
+          <div className="divide-y divide-[#A7B39A]/15 border-t border-b border-[#A7B39A]/15">
+            {stratificationTiers.map((tier) => (
+              <div key={tier.step} className="py-6 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
+                <div className="md:col-span-4 space-y-1">
+                  <div className="text-xs font-mono text-[#AD765B] font-bold">
+                    {tier.step} // {tier.height}
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#F4F0E6]">
                     {tier.title}
                   </h3>
-                  <div className="text-xs font-mono text-[#A7B39A] mt-2 italic">
-                    {tier.plants}
-                  </div>
                 </div>
-                <p className="text-xs text-[#D6D0C3] leading-relaxed pt-3 border-t border-white/10">
-                  {tier.role}
-                </p>
+
+                <div className="md:col-span-4 text-xs font-mono text-[#A7B39A] italic">
+                  {tier.plants}
+                </div>
+
+                <div className="md:col-span-4 text-sm text-[#D6D0C3] font-sans font-light leading-relaxed">
+                  {tier.desc}
+                </div>
               </div>
             ))}
           </div>

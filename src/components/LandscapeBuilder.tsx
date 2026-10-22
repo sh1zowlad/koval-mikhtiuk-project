@@ -103,7 +103,7 @@ export const LandscapeBuilder: React.FC<LandscapeBuilderProps> = ({ standalone =
   - Механіка кріплення: ${activeClimber.category === 'climber' ? 'Тросова або дерев\'яна шпалера' : 'Опора'}
 
 =====================================================
-Документ згенеровано освітньою системою TERRA // Архітектура живих ландшафтів.`;
+Документ сформовано презентаційною студією KOVAL MIKHTIUK // TERRA — Презентація ландшафтного дизайну.`;
   };
 
   const handleCopySummary = () => {
@@ -166,27 +166,35 @@ export const LandscapeBuilder: React.FC<LandscapeBuilderProps> = ({ standalone =
           </div>
         </div>
 
-        {/* Live Metrics Row */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-          <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3] shadow-sm">
-            <div className="text-[11px] font-mono text-[#64765A] uppercase tracking-wider mb-1">Площа ділянки</div>
-            <div className="text-2xl font-serif font-bold text-[#182C24]">{areaSqM} <span className="text-sm font-sans font-normal text-[#64765A]">м²</span></div>
-            <div className="text-[10px] text-[#A7B39A] mt-1">Озеленення ~{Math.round(areaSqM * 0.85)} м²</div>
+        {/* Live Engineering Metrics Bar — Senior Architectural Spec */}
+        <div className="border-t border-b border-[#D6D0C3] py-5 mb-10 grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#D6D0C3]">
+          <div className="py-2 md:py-0 md:px-6 first:pl-0">
+            <div className="text-[11px] font-mono text-[#64765A] uppercase tracking-wider">01 // Площа ділянки</div>
+            <div className="text-2xl sm:text-3xl font-serif font-bold text-[#182C24] mt-1">
+              {areaSqM} <span className="text-sm font-sans font-normal text-[#64765A]">м²</span>
+            </div>
+            <div className="text-[11px] font-mono text-[#A7B39A] mt-0.5">Озеленення ~{Math.round(areaSqM * 0.85)} м²</div>
           </div>
-          <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3] shadow-sm">
-            <div className="text-[11px] font-mono text-[#64765A] uppercase tracking-wider mb-1">Підпірна стінка</div>
-            <div className="text-2xl font-serif font-bold text-[#182C24]">{wallLengthM} <span className="text-sm font-sans font-normal text-[#64765A]">пог. м</span></div>
-            <div className="text-[10px] text-[#A7B39A] mt-1">Висота перепаду: 1.35 м</div>
+          <div className="py-2 md:py-0 md:px-6">
+            <div className="text-[11px] font-mono text-[#64765A] uppercase tracking-wider">02 // Підпірна лінія</div>
+            <div className="text-2xl sm:text-3xl font-serif font-bold text-[#182C24] mt-1">
+              {wallLengthM} <span className="text-sm font-sans font-normal text-[#64765A]">пог. м</span>
+            </div>
+            <div className="text-[11px] font-mono text-[#A7B39A] mt-0.5">Висота перепаду: 1.35 м</div>
           </div>
-          <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3] shadow-sm">
-            <div className="text-[11px] font-mono text-[#64765A] uppercase tracking-wider mb-1">Камінь / Дренаж</div>
-            <div className="text-2xl font-serif font-bold text-[#182C24]">{stoneVolumeM3} <span className="text-sm font-sans font-normal text-[#64765A]">м³</span></div>
-            <div className="text-[10px] text-[#A7B39A] mt-1">Щебінь подушки: {drainageCrushedRockM3} м³</div>
+          <div className="py-2 md:py-0 md:px-6">
+            <div className="text-[11px] font-mono text-[#64765A] uppercase tracking-wider">03 // Камінь / Дренаж</div>
+            <div className="text-2xl sm:text-3xl font-serif font-bold text-[#182C24] mt-1">
+              {stoneVolumeM3} <span className="text-sm font-sans font-normal text-[#64765A]">м³</span>
+            </div>
+            <div className="text-[11px] font-mono text-[#A7B39A] mt-0.5">Подушка: {drainageCrushedRockM3} м³</div>
           </div>
-          <div className="p-4 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3] shadow-sm">
-            <div className="text-[11px] font-mono text-[#64765A] uppercase tracking-wider mb-1">Матриця рослин</div>
-            <div className="text-2xl font-serif font-bold text-[#182C24]">{totalPlantCount} <span className="text-sm font-sans font-normal text-[#64765A]">саджанців</span></div>
-            <div className="text-[10px] text-[#A7B39A] mt-1">70% основа / 30% акценти</div>
+          <div className="py-2 md:py-0 md:px-6 last:pr-0">
+            <div className="text-[11px] font-mono text-[#64765A] uppercase tracking-wider">04 // Матриця рослин</div>
+            <div className="text-2xl sm:text-3xl font-serif font-bold text-[#182C24] mt-1">
+              {totalPlantCount} <span className="text-sm font-sans font-normal text-[#64765A]">саджанців</span>
+            </div>
+            <div className="text-[11px] font-mono text-[#A7B39A] mt-0.5">Баланс 70% основа / 30% акценти</div>
           </div>
         </div>
 
@@ -217,17 +225,17 @@ export const LandscapeBuilder: React.FC<LandscapeBuilderProps> = ({ standalone =
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
-                <div className="p-3 bg-white/70 rounded-xl border border-[#D6D0C3]">
-                  <span className="block text-[10px] font-mono text-[#64765A] uppercase">Колористика</span>
+              <div className="flex flex-wrap items-center gap-y-2 gap-x-6 pt-3 border-t border-[#D6D0C3]/60 text-xs">
+                <div>
+                  <span className="text-[10px] font-mono text-[#64765A] uppercase mr-2">Колористика:</span>
                   <span className="font-semibold text-[#182C24]">{activePalette.title}</span>
                 </div>
-                <div className="p-3 bg-white/70 rounded-xl border border-[#D6D0C3]">
-                  <span className="block text-[10px] font-mono text-[#64765A] uppercase">Матеріал стінки</span>
+                <div>
+                  <span className="text-[10px] font-mono text-[#64765A] uppercase mr-2">Матеріал стінки:</span>
                   <span className="font-semibold text-[#182C24]">{activeWall.name.split('(')[0]}</span>
                 </div>
-                <div className="p-3 bg-white/70 rounded-xl border border-[#D6D0C3]">
-                  <span className="block text-[10px] font-mono text-[#64765A] uppercase">Дренажний шар</span>
+                <div>
+                  <span className="text-[10px] font-mono text-[#64765A] uppercase mr-2">Дренажний шар:</span>
                   <span className="font-semibold text-emerald-800">Норма ДБН В.2.1-10:2018</span>
                 </div>
               </div>

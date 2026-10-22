@@ -259,24 +259,31 @@ export const ClimbingPlantsSection: React.FC<ClimberSectionProps> = ({ onSelectP
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="divide-y divide-[#A7B39A]/20 border-t border-b border-[#A7B39A]/20">
             {mechanisms.map((m, idx) => (
-              <div key={idx} className="p-6 bg-white/5 rounded-2xl border border-[#A7B39A]/20 space-y-4 flex flex-col justify-between">
-                <div>
-                  <div className="text-xs font-mono text-[#AD765B] font-bold mb-1">
-                    Тип 0{idx + 1}
+              <div key={idx} className="py-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+                <div className="md:col-span-3 space-y-1">
+                  <div className="text-xs font-mono text-[#AD765B] font-bold">
+                    МЕХАНІКА // 0{idx + 1}
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-[#F4F0E6]">
+                  <h3 className="text-xl font-serif font-bold text-[#F4F0E6]">
                     {m.type}
                   </h3>
-                  <div className="text-xs font-mono text-[#A7B39A] mt-2 bg-[#182C24] p-2.5 rounded-lg border border-white/5">
-                    Опора: {m.cableReq}
-                  </div>
                 </div>
 
-                <p className="text-xs text-[#D6D0C3] leading-relaxed pt-2 border-t border-white/10">
+                <div className="md:col-span-4 text-xs font-mono text-[#A7B39A]">
+                  <span className="block text-[10px] uppercase text-[#AD765B] font-bold tracking-wider mb-1">
+                    Вимоги до опори:
+                  </span>
+                  {m.cableReq}
+                </div>
+
+                <div className="md:col-span-5 text-sm text-[#D6D0C3] font-sans font-light leading-relaxed">
+                  <span className="block text-[10px] font-mono uppercase text-[#A7B39A] font-bold tracking-wider mb-1">
+                    Біомеханіка фіксації:
+                  </span>
                   {m.physics}
-                </p>
+                </div>
               </div>
             ))}
           </div>

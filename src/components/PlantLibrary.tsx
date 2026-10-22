@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { PLANTS_DATABASE } from '../data/plantsData';
 import { PlantSpecies, PlantCategory } from '../types/botanical';
-import { Search, ArrowUpRight, BookOpen, X, Sprout, ShieldCheck, Layers, AlertTriangle } from 'lucide-react';
+import { Search, ArrowUpRight, X, AlertTriangle } from 'lucide-react';
 
 interface PlantLibraryProps {
   onSelectPlant: (plant: PlantSpecies) => void;
@@ -63,12 +63,10 @@ export const PlantLibrary: React.FC<PlantLibraryProps> = ({ onSelectPlant }) => 
             </div>
 
             <div className="lg:col-span-4 flex lg:justify-end">
-              <div className="bg-[#1F2922] p-4 rounded-2xl border border-[#A7B39A]/30 flex items-center gap-3">
-                <BookOpen className="w-8 h-8 text-[#AD765B] shrink-0" />
-                <div>
-                  <div className="text-xs font-mono text-[#A7B39A]">Каталогізовано таксонів</div>
-                  <div className="text-xl font-mono font-bold text-[#F4F0E6]">{PLANTS_DATABASE.length} перевірених видів</div>
-                </div>
+              <div className="border-l border-[#A7B39A]/30 pl-4 py-1">
+                <div className="text-xs font-mono text-[#A7B39A] uppercase tracking-wider">Каталогізовано таксонів</div>
+                <div className="text-2xl font-serif font-bold text-[#F4F0E6] mt-0.5">{PLANTS_DATABASE.length} перевірених видів</div>
+                <div className="text-[11px] font-mono text-[#D6D0C3]/70">Стійкі культивари для нашого клімату</div>
               </div>
             </div>
           </div>
@@ -76,10 +74,10 @@ export const PlantLibrary: React.FC<PlantLibraryProps> = ({ onSelectPlant }) => 
 
         </div>
 
-        {/* SCIENTIFIC CURATION DOSSIER */}
-        <div className="bg-[#1F2922] rounded-3xl border border-[#A7B39A]/30 p-8 sm:p-10 space-y-8">
-          <div className="border-b border-[#A7B39A]/20 pb-4">
-            <span className="text-[11px] font-mono uppercase tracking-wider text-[#AD765B]">
+        {/* SCIENTIFIC CURATION DOSSIER — SENIOR ARCHITECTURAL SPEC */}
+        <div className="border-t border-b border-[#A7B39A]/20 py-10 space-y-8">
+          <div>
+            <span className="text-[11px] font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
               Методологія фітодизайну
             </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#F4F0E6] mt-1">
@@ -87,33 +85,27 @@ export const PlantLibrary: React.FC<PlantLibraryProps> = ({ onSelectPlant }) => 
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-5 rounded-2xl bg-[#182C24] border border-[#A7B39A]/20 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#AD765B]/20 text-[#AD765B] flex items-center justify-center">
-                <Layers className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-serif font-bold text-[#F4F0E6]">1. Матрична посадка (Matrix)</h3>
-              <p className="text-xs text-[#D6D0C3] leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-[#A7B39A]/20">
+            <div className="pt-6 md:pt-0 md:pr-8 space-y-2">
+              <span className="font-mono text-xs text-[#AD765B] font-bold block">[01]</span>
+              <h3 className="text-xl font-serif font-bold text-[#F4F0E6]">Матрична посадка (Matrix)</h3>
+              <p className="text-xs text-[#D6D0C3] leading-relaxed font-light font-sans">
                 За концепцією Піта Удольфа, до 70% площі заповнюється довговічними декоративними злаками та стійкими ґрунтопокривними, що утворюють щільний живий килим, який пригнічує бур'яни без агроволокна.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#182C24] border border-[#A7B39A]/20 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#64765A]/30 text-[#A7B39A] flex items-center justify-center">
-                <Sprout className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-serif font-bold text-[#F4F0E6]">2. Екологічна відповідність</h3>
-              <p className="text-xs text-[#D6D0C3] leading-relaxed">
+            <div className="pt-6 md:pt-0 md:px-8 space-y-2">
+              <span className="font-mono text-xs text-[#AD765B] font-bold block">[02]</span>
+              <h3 className="text-xl font-serif font-bold text-[#F4F0E6]">Екологічна відповідність</h3>
+              <p className="text-xs text-[#D6D0C3] leading-relaxed font-light font-sans">
                 «Правильна рослина на правильне місце» (Right Plant, Right Place). Замість штучної заміни ґрунтів і хімічного підкислення добираються види, що еволюційно пристосовані до наявної кислотності та дренажу.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#182C24] border border-[#A7B39A]/20 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#AD765B]/20 text-[#AD765B] flex items-center justify-center">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-serif font-bold text-[#F4F0E6]">3. Чотирисезонна архітектура</h3>
-              <p className="text-xs text-[#D6D0C3] leading-relaxed">
+            <div className="pt-6 md:pt-0 md:pl-8 space-y-2">
+              <span className="font-mono text-xs text-[#AD765B] font-bold block">[03]</span>
+              <h3 className="text-xl font-serif font-bold text-[#F4F0E6]">Чотирисезонна архітектура</h3>
+              <p className="text-xs text-[#D6D0C3] leading-relaxed font-light font-sans">
                 Квітка живе кілька тижнів, а стебло, форма суцвіття і зимовий силует працюють місяцями. Оцінка рослини проводиться насамперед за якістю відмирання та стійкістю до снігового навантаження.
               </p>
             </div>

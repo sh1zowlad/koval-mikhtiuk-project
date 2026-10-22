@@ -250,18 +250,18 @@ export const ColorLaboratory: React.FC<ColorLaboratoryProps> = ({ onSelectPlant 
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="divide-y divide-[#D6D0C3] border-t border-b border-[#D6D0C3]">
             {opticalRules.map((rule, idx) => (
-              <div key={idx} className="p-6 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3] shadow-sm space-y-3 flex flex-col justify-between">
-                <div>
-                  <div className="w-4 h-4 rounded-full mb-3" style={{ backgroundColor: rule.accent }} />
-                  <h3 className="text-lg font-serif font-bold text-[#182C24]">
-                    {rule.title}
-                  </h3>
+              <div key={idx} className="py-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+                <div className="md:col-span-1">
+                  <div className="w-3.5 h-3.5 rounded-full" style={{ backgroundColor: rule.accent }} />
                 </div>
-                <p className="text-xs text-[#64765A] leading-relaxed pt-2 border-t border-[#D6D0C3]/60">
+                <div className="md:col-span-4 font-serif font-bold text-xl text-[#182C24]">
+                  {rule.title}
+                </div>
+                <div className="md:col-span-7 text-sm text-[#262925]/85 font-sans font-light leading-relaxed">
                   {rule.desc}
-                </p>
+                </div>
               </div>
             ))}
           </div>

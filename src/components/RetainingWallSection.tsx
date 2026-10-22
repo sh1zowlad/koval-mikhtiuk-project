@@ -191,33 +191,31 @@ export const RetainingWallSection: React.FC<RetainingWallSectionProps> = ({ onSe
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="divide-y divide-[#D6D0C3] border-t border-b border-[#D6D0C3]">
             {structuralTypes.map((st, idx) => (
-              <div key={idx} className="p-6 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3] shadow-sm space-y-4 flex flex-col justify-between">
-                <div>
-                  <div className="text-xs font-mono text-[#AD765B] font-bold mb-1">
-                    Тип 0{idx + 1}
+              <div key={idx} className="py-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+                <div className="md:col-span-3 space-y-1">
+                  <div className="text-xs font-mono text-[#AD765B] font-bold">
+                    ТИП // 0{idx + 1}
                   </div>
-                  <h3 className="text-lg font-serif font-bold text-[#182C24]">
+                  <h3 className="text-xl font-serif font-bold text-[#182C24]">
                     {st.name}
                   </h3>
-                  <div className="text-xs font-mono text-[#64765A] mt-2">
-                    Висота: <strong className="text-[#182C24]">{st.heightLimit}</strong>
-                  </div>
-                  <div className="text-xs font-mono text-[#64765A] mt-0.5">
-                    Ухил: {st.slope}
+                  <div className="text-xs font-mono text-[#64765A]">
+                    Висота: {st.heightLimit} • {st.slope}
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-[#D6D0C3]/60 space-y-2 text-xs">
-                  <div>
-                    <span className="text-[10px] font-mono text-[#AD765B] uppercase block">Дренажний принцип:</span>
-                    <p className="text-[#262925] mt-0.5">{st.drainage}</p>
-                  </div>
-                  <div className="flex justify-between pt-1 font-mono text-[11px]">
-                    <span className="text-[#64765A]">Довговічність:</span>
-                    <span className="font-semibold text-emerald-900">{st.durability}</span>
-                  </div>
+                <div className="md:col-span-5 text-xs text-[#262925]/90 leading-relaxed font-sans font-light">
+                  <span className="block text-[10px] font-mono text-[#AD765B] uppercase font-bold tracking-wider mb-1">
+                    Дренажний принцип:
+                  </span>
+                  {st.drainage}
+                </div>
+
+                <div className="md:col-span-4 text-xs font-mono text-[#64765A] space-y-1">
+                  <div>Довговічність: <strong className="text-[#182C24]">{st.durability}</strong></div>
+                  <div>Вартість: <span>{st.cost}</span></div>
                 </div>
               </div>
             ))}

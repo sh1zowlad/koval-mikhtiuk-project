@@ -140,7 +140,7 @@ export const Navigation: React.FC = () => {
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono text-[#A7B39A] font-bold">0{m.number}</span>
+                    <span className="text-xs font-mono text-[#A7B39A] font-bold">{m.number}</span>
                     <div>
                       <span className="font-serif text-base block text-[#F4F0E6]">{m.title}</span>
                       <span className="text-xs text-[#A7B39A] block mt-0.5">{m.description}</span>

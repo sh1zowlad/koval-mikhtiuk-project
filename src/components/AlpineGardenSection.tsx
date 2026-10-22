@@ -273,18 +273,18 @@ export const AlpineGardenSection: React.FC<AlpineGardenSectionProps> = ({ onSele
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="divide-y divide-[#A7B39A]/20 border-t border-b border-[#A7B39A]/20">
             {stoneRules.map((rule, idx) => (
-              <div key={idx} className="p-6 bg-white/5 rounded-2xl border border-[#A7B39A]/20 space-y-3">
-                <div className="text-xs font-mono text-[#AD765B] font-bold">
-                  Закон 0{idx + 1}
+              <div key={idx} className="py-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+                <div className="md:col-span-2 text-xs font-mono text-[#AD765B] font-bold">
+                  ЗАКОН // 0{idx + 1}
                 </div>
-                <h3 className="text-lg font-serif font-bold text-[#F4F0E6]">
+                <div className="md:col-span-4 font-serif font-bold text-xl text-[#F4F0E6]">
                   {rule.rule}
-                </h3>
-                <p className="text-xs text-[#D6D0C3] leading-relaxed pt-2 border-t border-white/10">
+                </div>
+                <div className="md:col-span-6 text-sm text-[#D6D0C3] font-sans font-light leading-relaxed">
                   {rule.desc}
-                </p>
+                </div>
               </div>
             ))}
           </div>

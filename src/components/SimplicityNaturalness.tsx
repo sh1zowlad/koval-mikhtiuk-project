@@ -2,42 +2,42 @@ import React, { useState } from 'react';
 import { CheckSquare, Square } from 'lucide-react';
 
 export const SimplicityNaturalness: React.FC = () => {
-  const [checklist, setChecklist] = useState<{ id: string; label: string; explanation: string; checked: boolean }[]>([
+  const [checklist, setChecklist] = useState([
     {
-      id: 'rule-70-30',
-      label: 'Правило 70/30 (Базова матриця проти акцентів)',
-      explanation: '70% площі квітника віддається спокійним структурним травам і ґрунтопокривним, і лише 30% — яскравим тимчасовим суцвіттям.',
-      checked: true
+      id: 'matrix',
+      label: '70% площі закладено матричними злаками та ґрунтопокривними',
+      checked: true,
+      explanation: 'Матриця утворює стійкий мікроклімат і виключає відкриту чорну землю.'
     },
     {
-      id: 'species-limit',
-      label: 'Дисципліна стриманої палітри видів',
-      explanation: 'Обмеження асортименту багаторічників до 7–9 взаємодоповнюючих сортів на 100 м² замість безладного колекціонування десятків поодиноких рослин.',
-      checked: true
+      id: 'repeat',
+      label: 'Повторення домінантних груп кожні 2–4 метри',
+      checked: true,
+      explanation: 'Створює ритмічну хвилю та об\'єднує різні зони ділянки в єдину картину.'
     },
     {
-      id: 'stone-provenance',
-      label: 'Єдине геологічне походження каменю',
-      explanation: 'Використання лише однієї породи каменю (наприклад, тільки подільського вапняку або тільки карпатського пісковику) для стін, сходів і рокарію.',
-      checked: true
+      id: 'colors',
+      label: 'Не більше 2–3 споріднених колірних відтінків одночасно',
+      checked: false,
+      explanation: 'Запобігає візуальному шуму та хаотичній строкатості садових центрів.'
     },
     {
-      id: 'odd-groupings',
-      label: 'Органічні непарні групи (3, 5, 7)',
-      explanation: 'Висадка рослин аморфними взаємопроникними плямами по 3, 5 або 7 штук замість штучних прямих ліній чи поодиноких точок.',
-      checked: false
+      id: 'pause',
+      label: 'Збережено мінімум 30% негативного простору для ока',
+      checked: true,
+      explanation: 'Гравійні відсипки або низькі трав\'яні галявини дають погляду перепочинок.'
     },
     {
-      id: 'density-calc',
-      label: 'Щільність змикання крони (6–8 рослин/м²)',
-      explanation: 'Швидке природне закриття поверхні ґрунту листям, що зберігає вологу і позбавляє бур\'яни світла.',
-      checked: false
+      id: 'winter',
+      label: 'Всі рослини зберігають графічний силует і суцвіття взимку',
+      checked: true,
+      explanation: 'Сад залишається тривимірною скульптурою навіть під шаром снігу та інею.'
     },
     {
-      id: 'grade-respect',
-      label: 'Повага до існуючого ухилу рельєфу',
-      explanation: 'Вписування підпірних терас у природні горизонталі пагорба замість тотального зрізання шарів екскаватором.',
-      checked: false
+      id: 'limit',
+      label: 'Ліміт видів: 7–9 стійких сортів замість десятків одиночних екземплярів',
+      checked: false,
+      explanation: 'Природний вигляд виникає через масиви, а не колекціонування етикеток.'
     }
   ]);
 
@@ -51,12 +51,12 @@ export const SimplicityNaturalness: React.FC = () => {
   const comparisons = [
     {
       criterion: 'Принцип посадки',
-      catalog: '«По одній рослині кожного сорту» з садового центру (колекціонування етикеток)',
-      natural: 'Матричні переплетені групи по 5–15 рослин одного сорту, що утворюють суцільні хвилі'
+      catalog: 'По одній рослині кожного сорту з садового центру (колекціонування етикеток)',
+      natural: 'Матричні переплетені групи по 5–15 рослин одного виду, що утворюють суцільні хвилі'
     },
     {
       criterion: 'Поведінка ґрунту',
-      catalog: 'Відкритий чорнозем або фарбована кора, що вимагає постійного прополювання та хімікатів',
+      catalog: 'Відкритий чорнозем або фарбована кора, що вимагає постійного прополювання та гербіцидів',
       natural: '100% покриття живим зеленим пологом (living mulch); волога утримується корінням'
     },
     {
@@ -67,181 +67,153 @@ export const SimplicityNaturalness: React.FC = () => {
     {
       criterion: 'Трудовитрати на догляд',
       catalog: 'Щотижнева боротьба з бур\'янами, полив голих ділянок, підв\'язування слабких гібридів',
-      natural: 'Стійка саморегульована екосистема: одна санітарна стрижка навесні (лютий/березень)'
+      natural: 'Стійка саморегульована екосистема: одна санітарна стрижка на рік навесні'
     }
   ];
 
   return (
-    <div className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#F4F0E6] text-[#262925]">
-      <div className="max-w-7xl mx-auto space-y-16">
+    <div className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#FAF8F3] text-[#262925]">
+      <div className="max-w-7xl mx-auto space-y-20">
         
-        {/* CHAPTER HERO HEADER */}
-        <div className="border-b border-[#A7B39A]/60 pb-10">
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#64765A] mb-3">
-            <span className="px-2 py-0.5 bg-[#EAE4D5] rounded text-[#182C24] font-semibold">Натуралізм</span>
-            <span>//</span>
+        {/* EDITORIAL CHAPTER HEADER */}
+        <div className="border-b border-[#D6D0C3] pb-12">
+          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#64765A] mb-4">
+            <span className="w-2 h-2 rounded-full bg-[#AD765B]" />
             <span>Філософія натуралізму</span>
+            <span>//</span>
+            <span>Стриманість та цілісність</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-serif font-bold text-[#182C24] leading-tight">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-[#182C24] leading-[1.08] max-w-4xl">
             Простота і природність: <br />
             <span className="italic font-normal text-[#64765A]">Дисципліна матричного дизайну.</span>
           </h1>
 
-          <p className="mt-4 text-base sm:text-xl text-[#64765A] max-w-3xl leading-relaxed font-light">
-            Справжній природний сад виникає не тоді, коли більше нічого додати, а тоді, коли більше нічого не можна забрати без шкоди для цілісності середовища. Це відмова від штучної строкатості на користь спокійної сили дикої природи.
+          <p className="mt-6 text-lg sm:text-xl text-[#262925]/85 max-w-3xl leading-relaxed font-light font-sans">
+            Справжній природний ландшафт виникає не тоді, коли більше нічого додати, а тоді, коли більше нічого не можна забрати без шкоди для цілісності середовища. Це свідома відмова від хаотичної строкатості на користь спокійної сили дикої природи.
           </p>
-
-
         </div>
 
-        {/* SECTION 1: THE 70/20/10 FORMULA */}
-        <div className="bg-[#FAF8F3] p-8 sm:p-10 rounded-3xl border border-[#D6D0C3] shadow-sm space-y-8">
+        {/* SECTION 1: THE 70/20/10 FORMULA (EDITORIAL STREAM) */}
+        <div className="space-y-8">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
-              Золота формула Нового Багаторічника
+              Формула Нового Багаторічника
             </span>
             <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24] mt-1">
-              Пропорція шарів: 70% Матриця // 20% Структура // 10% Спалахи
-            </h2>
-            <p className="mt-2 text-sm text-[#64765A] max-w-2xl leading-relaxed">
-              Замість випадкового змішування сортів, натуралістичний сад будується за трьома чітко розмежованими екологічними ролями.
-            </p>
-          </div>
-
-          {/* Visual Ratio Bar */}
-          <div className="space-y-3">
-            <div className="w-full h-8 rounded-xl overflow-hidden flex shadow-inner border border-[#D6D0C3]">
-              <div className="bg-[#243E2C] h-full flex items-center justify-center text-[#F4F0E6] text-xs font-mono font-bold" style={{ width: '70%' }}>
-                70% Матричний шар
-              </div>
-              <div className="bg-[#64765A] h-full flex items-center justify-center text-[#F4F0E6] text-xs font-mono font-bold" style={{ width: '20%' }}>
-                20% Структура
-              </div>
-              <div className="bg-[#AD765B] h-full flex items-center justify-center text-[#F4F0E6] text-xs font-mono font-bold" style={{ width: '10%' }}>
-                10%
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-[#243E2C]" />
-                  <h4 className="font-serif font-bold text-lg text-[#182C24]">70% Матричні трави</h4>
-                </div>
-                <p className="text-xs text-[#64765A] leading-relaxed">
-                  Сеслерія, ковила, щучник, манжетка. Зелений або золотавий фон, що закриває всю площу і працює як жива мульча з весни до зими.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-[#64765A]" />
-                  <h4 className="font-serif font-bold text-lg text-[#182C24]">20% Структурні солітери</h4>
-                </div>
-                <p className="text-xs text-[#64765A] leading-relaxed">
-                  Шавлія дібровна, ехінацея, очитник видний. Рослини з міцним стеблом, які зберігають красивий скелет суцвіть навіть після відцвітання.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-[#AD765B]" />
-                  <h4 className="font-serif font-bold text-lg text-[#182C24]">10% Сезонні спалахи</h4>
-                </div>
-                <p className="text-xs text-[#64765A] leading-relaxed">
-                  Дикі тюльпани, алліуми, ліхніс. Яскраві короткі феєрверки, що спалахують на 2–3 тижні й зникають, не руйнуючи загальний вигляд.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* SECTION 2: COMPARATIVE BREAKDOWN */}
-        <div className="space-y-6 pt-6 border-t border-[#D6D0C3]">
-          <div>
-            <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
-              Анатомія стилю
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24] mt-1">
-              Каталожний хаос проти природного біотопу
+              Пропорція 70/20/10: Матриця, Структура, Спалахи
             </h2>
           </div>
 
-          <div className="bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3] overflow-hidden shadow-sm">
-            <div className="grid grid-cols-12 bg-[#182C24] text-[#F4F0E6] p-4 text-xs font-mono uppercase tracking-wider font-semibold">
-              <div className="col-span-3">Критерій проектування</div>
-              <div className="col-span-4 text-[#D88C78]">[01] Традиційний декоративний підхід</div>
-              <div className="col-span-5 text-[#A7B39A]">[02] Сталий природний біотоп</div>
+          {/* Visual Percentage Bar */}
+          <div className="w-full h-4 rounded-full overflow-hidden flex bg-neutral-200">
+            <div style={{ width: '70%' }} className="bg-[#64765A]" title="70% Матричні трави" />
+            <div style={{ width: '20%' }} className="bg-[#182C24]" title="20% Структурні багаторічники" />
+            <div style={{ width: '10%' }} className="bg-[#AD765B]" title="10% Сезонні спалахи" />
+          </div>
+
+          {/* Editorial 3-Column Narrative without chunky boxed cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-[#64765A]" />
+                <h3 className="font-serif font-bold text-xl text-[#182C24]">70% Матрична база</h3>
+              </div>
+              <p className="text-sm text-[#262925]/80 font-sans font-light leading-relaxed">
+                Сеслерія осіння, ковила, молінія, осоки. Стабільний зелений фундамент, який пригнічує бур'яни, тримає форму з квітня до березня і створює текстурну глибину.
+              </p>
             </div>
 
-            <div className="divide-y divide-[#D6D0C3]">
-              {comparisons.map((c, idx) => (
-                <div key={idx} className="grid grid-cols-12 p-4 sm:p-5 text-xs items-center gap-3">
-                  <div className="col-span-12 sm:col-span-3 font-serif font-bold text-[#182C24]">
-                    {c.criterion}
-                  </div>
-                  <div className="col-span-12 sm:col-span-4 text-[#5A2920] bg-[#FAF0ED] p-3 rounded-xl border border-[#AD765B]/30 leading-relaxed">
-                    {c.catalog}
-                  </div>
-                  <div className="col-span-12 sm:col-span-5 text-[#182C24] bg-[#EAEFE8] p-3 rounded-xl border border-[#64765A]/30 leading-relaxed font-medium">
-                    {c.natural}
-                  </div>
-                </div>
-              ))}
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-[#182C24]" />
+                <h3 className="font-serif font-bold text-xl text-[#182C24]">20% Структурні солітери</h3>
+              </div>
+              <p className="text-sm text-[#262925]/80 font-sans font-light leading-relaxed">
+                Шавлія дібровна, ехінацея, очитник видний. Рослини з міцним стеблом, які зберігають красивий скелет суцвіть навіть після відцвітання.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-[#AD765B]" />
+                <h3 className="font-serif font-bold text-xl text-[#182C24]">10% Сезонні спалахи</h3>
+              </div>
+              <p className="text-sm text-[#262925]/80 font-sans font-light leading-relaxed">
+                Дикі тюльпани, алліуми, ліхніс. Яскраві короткі феєрверки, що спалахують на 2–3 тижні й зникають, не руйнуючи загальний вигляд.
+              </p>
             </div>
           </div>
         </div>
 
-        {/* SECTION 3: INTERACTIVE CONCEPT AUDITOR CHECKLIST */}
-        <div className="space-y-6 pt-6 border-t border-[#D6D0C3]">
+        {/* SECTION 2: COMPARATIVE BREAKDOWN TABLE */}
+        <div className="space-y-8 pt-8 border-t border-[#D6D0C3]">
+          <div>
+            <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
+              Порівняльний аналіз
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24] mt-1">
+              Традиційний підхід проти сталого природного біотопу
+            </h2>
+          </div>
+
+          <div className="divide-y divide-[#D6D0C3] border-t border-b border-[#D6D0C3]">
+            {comparisons.map((c, idx) => (
+              <div key={idx} className="py-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline">
+                <div className="md:col-span-3 text-xs font-mono text-[#AD765B] font-bold uppercase tracking-wider">
+                  0{idx + 1}. {c.criterion}
+                </div>
+                <div className="md:col-span-4 text-xs font-mono text-[#8B483B] leading-relaxed">
+                  <span className="block text-[10px] text-red-500 uppercase font-bold tracking-wider mb-1">Традиційно:</span>
+                  {c.catalog}
+                </div>
+                <div className="md:col-span-5 text-sm text-[#182C24] font-sans font-light leading-relaxed">
+                  <span className="block text-[10px] text-[#64765A] font-mono uppercase font-bold tracking-wider mb-1">Природне рішення:</span>
+                  {c.natural}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SECTION 3: CHECKLIST AUDIT — CLEAN ARCHITECTURAL LINES */}
+        <div className="space-y-8 pt-8 border-t border-[#D6D0C3]">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-[#AD765B] font-semibold block">
-                Інтерактивний чек-аудит
+                Інтерактивний чек-лист
               </span>
               <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#182C24] mt-1">
-                Перевірте свій проект на природність
+                Критерії природності ландшафтної концепції
               </h2>
             </div>
 
-            {/* Score Ring / Pill */}
-            <div className="flex items-center gap-3 p-3 bg-[#FAF8F3] rounded-2xl border border-[#D6D0C3] shrink-0">
-              <div className="text-right">
-                <span className="text-[10px] font-mono text-[#64765A] block uppercase">Індекс природності</span>
-                <span className="text-xl font-serif font-bold text-[#182C24]">{scorePercent}%</span>
-              </div>
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-xs ${
-                scorePercent >= 80 ? 'bg-emerald-800 text-white' : scorePercent >= 50 ? 'bg-amber-700 text-white' : 'bg-[#AD765B] text-white'
-              }`}>
-                {checkedCount}/6
-              </div>
+            <div className="flex items-center gap-3 text-xs font-mono text-[#64765A]">
+              <span>Індекс відповідності:</span>
+              <span className="text-lg font-serif font-bold text-[#182C24]">{scorePercent}%</span>
+              <span>({checkedCount}/6)</span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
             {checklist.map(item => (
               <div
                 key={item.id}
                 onClick={() => toggleCheck(item.id)}
-                className={`p-5 rounded-2xl border cursor-pointer transition-all flex items-start gap-3.5 ${
-                  item.checked
-                    ? 'bg-[#FAF8F3] border-[#64765A] shadow-sm ring-1 ring-[#64765A]/40'
-                    : 'bg-white/60 border-[#D6D0C3] hover:bg-[#FAF8F3]'
-                }`}
+                className="py-3 flex items-start gap-3 cursor-pointer group border-b border-[#D6D0C3]/60"
               >
                 <div className="mt-0.5 shrink-0">
                   {item.checked ? (
-                    <CheckSquare className="w-5 h-5 text-emerald-800" />
+                    <CheckSquare className="w-4 h-4 text-[#64765A]" />
                   ) : (
-                    <Square className="w-5 h-5 text-[#A7B39A]" />
+                    <Square className="w-4 h-4 text-[#A7B39A] group-hover:text-[#64765A]" />
                   )}
                 </div>
                 <div>
-                  <h4 className={`text-sm font-serif font-bold ${item.checked ? 'text-[#182C24]' : 'text-[#64765A]'}`}>
+                  <h4 className={`text-sm font-serif font-medium transition-colors ${item.checked ? 'text-[#182C24]' : 'text-[#64765A]'}`}>
                     {item.label}
                   </h4>
-                  <p className="mt-1 text-xs text-[#64765A] leading-relaxed">
+                  <p className="mt-0.5 text-xs text-[#64765A] font-light leading-relaxed">
                     {item.explanation}
                   </p>
                 </div>
