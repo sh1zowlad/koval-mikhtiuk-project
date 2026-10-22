@@ -9,48 +9,27 @@ import { PageLayout } from './components/PageLayout';
 import { PlantSpecies } from './types/botanical';
 import { Sparkles } from 'lucide-react';
 
-// Code-splitting via React.lazy for non-landing routes
-const LandscapePrinciples = lazy(() =>
-  import('./components/LandscapePrinciples').then(m => ({ default: m.LandscapePrinciples }))
+// Lazy-loaded Core Page Pillars for optimal bundle performance
+const CompositionPage = lazy(() =>
+  import('./pages/CompositionPage').then(m => ({ default: m.CompositionPage }))
 );
-const TransitionComparison = lazy(() =>
-  import('./components/TransitionComparison').then(m => ({ default: m.TransitionComparison }))
+const Spaces3DPage = lazy(() =>
+  import('./pages/Spaces3DPage').then(m => ({ default: m.Spaces3DPage }))
 );
-const SimplicityNaturalness = lazy(() =>
-  import('./components/SimplicityNaturalness').then(m => ({ default: m.SimplicityNaturalness }))
+const AtlasPage = lazy(() =>
+  import('./pages/AtlasPage').then(m => ({ default: m.AtlasPage }))
 );
-const AlpineGardenSection = lazy(() =>
-  import('./components/AlpineGardenSection').then(m => ({ default: m.AlpineGardenSection }))
-);
-const RetainingWallSection = lazy(() =>
-  import('./components/RetainingWallSection').then(m => ({ default: m.RetainingWallSection }))
-);
-const ClimbingPlantsSection = lazy(() =>
-  import('./components/ClimbingPlantsSection').then(m => ({ default: m.ClimbingPlantsSection }))
-);
-const ColorLaboratory = lazy(() =>
-  import('./components/ColorLaboratory').then(m => ({ default: m.ColorLaboratory }))
-);
-const PlantLibrary = lazy(() =>
-  import('./components/PlantLibrary').then(m => ({ default: m.PlantLibrary }))
-);
-const LandscapeBuilder = lazy(() =>
-  import('./components/LandscapeBuilder').then(m => ({ default: m.LandscapeBuilder }))
-);
-const CaseStudySection = lazy(() =>
-  import('./components/CaseStudySection').then(m => ({ default: m.CaseStudySection }))
-);
-const MaintenanceCalendar = lazy(() =>
-  import('./components/MaintenanceCalendar').then(m => ({ default: m.MaintenanceCalendar }))
+const StudioPage = lazy(() =>
+  import('./pages/StudioPage').then(m => ({ default: m.StudioPage }))
 );
 
-// Botanical Loading Skeleton
+// Loading Skeleton
 const RouteLoadingFallback: React.FC = () => (
   <div className="min-h-[50vh] flex flex-col items-center justify-center p-12 text-center text-[#A7B39A]">
     <div className="w-10 h-10 rounded-full border-2 border-[#A7B39A]/20 border-t-[#AD765B] animate-spin mb-4" />
     <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#D6D0C3]">
       <Sparkles className="w-3.5 h-3.5 text-[#AD765B]" />
-      <span>Завантаження ботанічного модуля...</span>
+      <span>Завантаження архітектурного простору...</span>
     </div>
   </div>
 );
@@ -76,7 +55,7 @@ export const App: React.FC = () => {
         <div className="flex-1">
           <Suspense fallback={<RouteLoadingFallback />}>
             <Routes>
-              {/* ROUTE 01 — HOME // CINEMATIC HERO & MASTER 3D GARDEN & CURRICULUM OVERVIEW */}
+              {/* PILLAR 01 — HOME // CINEMATIC HERO & 3D MASTER GARDEN */}
               <Route
                 path="/"
                 element={
@@ -87,136 +66,61 @@ export const App: React.FC = () => {
                 }
               />
 
-              {/* ROUTE 02 — PRINCIPLES OF LANDSCAPE COMPOSITION */}
+              {/* PILLAR 02 — COMPOSITION & COLOR THEORY */}
               <Route
-                path="/principles"
+                path="/composition"
                 element={
                   <PageLayout>
-                    <LandscapePrinciples />
+                    <CompositionPage onSelectPlant={handleSelectPlant} />
                   </PageLayout>
                 }
               />
 
-              {/* ROUTE 03 — SMOOTH TRANSITIONS & VEGETATION TIERS */}
+              {/* PILLAR 03 — 3D SPATIAL PAVILION (ALPINE, WALLS, CLIMBERS) */}
               <Route
-                path="/transitions"
+                path="/spaces-3d"
                 element={
                   <PageLayout>
-                    <TransitionComparison />
+                    <Spaces3DPage onSelectPlant={handleSelectPlant} />
                   </PageLayout>
                 }
               />
 
-              {/* ROUTE 04 — SIMPLICITY & NATURALNESS */}
+              {/* PILLAR 04 — BOTANICAL ATLAS & MAINTENANCE CALENDAR */}
               <Route
-                path="/naturalness"
+                path="/atlas"
                 element={
                   <PageLayout>
-                    <SimplicityNaturalness />
+                    <AtlasPage onSelectPlant={handleSelectPlant} />
                   </PageLayout>
                 }
               />
 
-              {/* ROUTE 05 — ALPINE GARDENS 3D */}
+              {/* PILLAR 05 — DESIGN STUDIO & REALIZED CASE STUDY */}
               <Route
-                path="/alpine-gardens"
+                path="/studio"
                 element={
                   <PageLayout>
-                    <AlpineGardenSection onSelectPlant={handleSelectPlant} />
+                    <StudioPage />
                   </PageLayout>
                 }
               />
 
-              {/* ROUTE 06 — RETAINING WALLS & DRAINAGE 3D */}
-              <Route
-                path="/retaining-walls"
-                element={
-                  <PageLayout>
-                    <RetainingWallSection onSelectPlant={handleSelectPlant} />
-                  </PageLayout>
-                }
-              />
+              {/* BACKWARD-COMPATIBLE ROUTE REDIRECTS (PREVENTS BROKEN BOOKMARKS) */}
+              <Route path="/principles" element={<Navigate to="/composition" replace />} />
+              <Route path="/transitions" element={<Navigate to="/composition" replace />} />
+              <Route path="/naturalness" element={<Navigate to="/composition" replace />} />
+              <Route path="/color-laboratory" element={<Navigate to="/composition" replace />} />
 
-              {/* ROUTE 07 — CLIMBING PLANTS & PERGOLAS 3D */}
-              <Route
-                path="/climbing-plants"
-                element={
-                  <PageLayout>
-                    <ClimbingPlantsSection onSelectPlant={handleSelectPlant} />
-                  </PageLayout>
-                }
-              />
+              <Route path="/alpine-gardens" element={<Navigate to="/spaces-3d" replace />} />
+              <Route path="/retaining-walls" element={<Navigate to="/spaces-3d" replace />} />
+              <Route path="/climbing-plants" element={<Navigate to="/spaces-3d" replace />} />
 
-              {/* ROUTE 08 — COLOR HARMONY LABORATORY */}
-              <Route
-                path="/color-laboratory"
-                element={
-                  <PageLayout>
-                    <ColorLaboratory onSelectPlant={handleSelectPlant} />
-                  </PageLayout>
-                }
-              />
+              <Route path="/plant-library" element={<Navigate to="/atlas" replace />} />
+              <Route path="/calendar" element={<Navigate to="/atlas" replace />} />
 
-              {/* ROUTE 09 — BOTANICAL HERBARIUM & PLANT ATLAS */}
-              <Route
-                path="/plant-library"
-                element={
-                  <PageLayout>
-                    <PlantLibrary onSelectPlant={handleSelectPlant} />
-                  </PageLayout>
-                }
-              />
-
-              {/* ROUTE 10 — 3D LANDSCAPE DESIGN STUDIO (SANDBOX) */}
-              <Route
-                path="/landscape-builder"
-                element={
-                  <PageLayout>
-                    <LandscapeBuilder standalone={true} />
-                  </PageLayout>
-                }
-              />
-
-              {/* ROUTE 11 — CASE STUDY: VILLA TERRENA */}
-              <Route
-                path="/case-study"
-                element={
-                  <PageLayout>
-                    <CaseStudySection />
-                  </PageLayout>
-                }
-              />
-
-              {/* ROUTE 12 — MAINTENANCE CALENDAR & PHENOLOGY */}
-              <Route
-                path="/calendar"
-                element={
-                  <PageLayout>
-                    <MaintenanceCalendar />
-                  </PageLayout>
-                }
-              />
-
-              {/* ALL-IN-ONE MONOLITHIC VIEW FOR CONTINUOUS READING */}
-              <Route
-                path="/all-in-one"
-                element={
-                  <main>
-                    <HeroSection onSelectPlant={handleSelectPlant} />
-                    <LandscapePrinciples />
-                    <TransitionComparison />
-                    <SimplicityNaturalness />
-                    <AlpineGardenSection onSelectPlant={handleSelectPlant} />
-                    <RetainingWallSection onSelectPlant={handleSelectPlant} />
-                    <ClimbingPlantsSection onSelectPlant={handleSelectPlant} />
-                    <ColorLaboratory onSelectPlant={handleSelectPlant} />
-                    <PlantLibrary onSelectPlant={handleSelectPlant} />
-                    <LandscapeBuilder standalone={false} />
-                    <CaseStudySection />
-                    <MaintenanceCalendar />
-                  </main>
-                }
-              />
+              <Route path="/landscape-builder" element={<Navigate to="/studio" replace />} />
+              <Route path="/case-study" element={<Navigate to="/studio" replace />} />
 
               {/* FALLBACK REDIRECT */}
               <Route path="*" element={<Navigate to="/" replace />} />

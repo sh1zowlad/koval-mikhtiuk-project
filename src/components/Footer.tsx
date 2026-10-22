@@ -35,17 +35,24 @@ export const Footer: React.FC = () => {
           {/* Navigation Directory (4 cols) */}
           <div className="md:col-span-4 space-y-3">
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#AD765B] block">
-              12 Розділів проекту
+              Розділи архітектурного проєкту
             </span>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs font-mono text-[#D6D0C3]">
-              {COURSE_MODULES.slice(0, 12).map(m => (
+            <div className="space-y-2 text-xs font-mono text-[#D6D0C3]">
+              {COURSE_MODULES.map(m => (
                 <Link
                   key={m.id}
                   to={m.path}
-                  className="hover:text-[#F4F0E6] transition-colors truncate block"
+                  className="hover:text-[#F4F0E6] transition-colors flex items-center justify-between group"
                 >
-                  <span className="text-[#A7B39A] mr-1">{m.number}.</span>
-                  {m.shortTitle.replace(/^\d+\s*/, '')}
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#A7B39A] text-[10px]">0{m.number}.</span>
+                    <span className="group-hover:text-white transition-colors">{m.title}</span>
+                  </div>
+                  {m.badge && (
+                    <span className="text-[9px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-[#A7B39A]">
+                      {m.badge}
+                    </span>
+                  )}
                 </Link>
               ))}
             </div>
@@ -54,10 +61,13 @@ export const Footer: React.FC = () => {
           {/* Actions & Scroll to top (3 cols) */}
           <div className="md:col-span-3 space-y-3 flex flex-col justify-between">
             <Link
-              to="/landscape-builder"
-              className="p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-[#A7B39A]/30 flex items-center justify-between text-xs font-mono transition-colors group"
+              to="/studio"
+              className="p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-[#A7B39A]/30 flex items-center justify-between text-xs font-mono transition-colors group"
             >
-              <span className="text-[#D6D0C3] group-hover:text-white">Відкрити 3D Студію</span>
+              <div className="text-left">
+                <span className="block text-[#F4F0E6] font-semibold">Проєктна Студія</span>
+                <span className="block text-[10px] text-[#A7B39A]">3D макетування & генеральний план</span>
+              </div>
               <Sparkles className="w-4 h-4 text-[#AD765B]" />
             </Link>
 

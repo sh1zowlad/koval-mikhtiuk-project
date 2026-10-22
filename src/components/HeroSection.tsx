@@ -43,18 +43,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSelectPlant }) => {
           {/* Call to Actions & Metric Tag */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
             <Link
-              to="/principles"
+              to="/composition"
               className="px-6 py-3 bg-[#AD765B] hover:bg-[#c4876b] text-[#F4F0E6] text-xs font-mono tracking-wider uppercase rounded-full transition-all shadow-md flex items-center gap-2 group"
             >
-              <span>Дослідити принципи</span>
+              <span>Дослідити композицію</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
             <Link
-              to="/alpine-gardens"
+              to="/spaces-3d"
               className="px-6 py-3 bg-[#182C24] hover:bg-[#64765A]/40 text-[#D6D0C3] hover:text-[#F4F0E6] text-xs font-mono tracking-wider uppercase rounded-full border border-[#A7B39A]/40 transition-colors flex items-center gap-2"
             >
               <Sparkles className="w-3.5 h-3.5 text-[#A7B39A]" />
-              <span>Альпінарій 3D</span>
+              <span>3D Простори</span>
             </Link>
           </div>
         </div>
@@ -77,14 +77,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSelectPlant }) => {
         </div>
 
         <Link
-          to="/principles"
+          to="/composition"
           className="flex items-center gap-2 text-[#D6D0C3] hover:text-[#F4F0E6] transition-colors group"
         >
-          <span>Перейти до Розділу 02 // Принципи композиції</span>
+          <span>Перейти до Розділу 02 // Композиція та закони</span>
           <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
     </section>
   );
 };
-

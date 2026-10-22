@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Volume2, VolumeX, Menu, X, Compass, ChevronDown, Sparkles, BookOpen } from 'lucide-react';
+import { Volume2, VolumeX, Menu, X, Compass, Sparkles } from 'lucide-react';
 import { ambientSound } from '../utils/ambientAudio';
 import { COURSE_MODULES } from '../data/courseModules';
 
@@ -8,7 +8,6 @@ export const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -23,7 +22,6 @@ export const Navigation: React.FC = () => {
   useEffect(() => {
     queueMicrotask(() => {
       setMobileMenuOpen(false);
-      setDropdownOpen(false);
     });
   }, [location.pathname]);
 
@@ -34,11 +32,10 @@ export const Navigation: React.FC = () => {
 
   const primaryNavItems = [
     { path: '/', label: 'Головна 3D' },
-    { path: '/principles', label: 'Композиція' },
-    { path: '/alpine-gardens', label: 'Альпінарій' },
-    { path: '/retaining-walls', label: 'Стінки 3D' },
-    { path: '/climbing-plants', label: 'Ліани 3D' },
-    { path: '/plant-library', label: 'Гербарій' },
+    { path: '/composition', label: 'Композиція' },
+    { path: '/spaces-3d', label: '3D Простори' },
+    { path: '/atlas', label: 'Ботанічний Атлас' },
+    { path: '/studio', label: 'Студія & Кейс' },
   ];
 
   return (
@@ -64,15 +61,16 @@ export const Navigation: React.FC = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links (Clean 5-Item Architecture) */}
           <nav className="hidden lg:flex items-center gap-1.5 bg-[#182C24]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#A7B39A]/30">
             {primaryNavItems.map(item => {
-              const isActive = location.pathname === item.path;
+              const isActive = location.pathname === item.path ||
+                (item.path !== '/' && location.pathname.startsWith(item.path));
               return (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`px-3.5 py-1 text-[13px] font-sans rounded-full transition-all tracking-wide ${
+                  className={`px-4 py-1.5 text-[13px] font-sans rounded-full transition-all tracking-wide ${
                     isActive
                       ? 'bg-[#64765A] text-[#F4F0E6] font-semibold shadow-sm'
                       : 'text-[#D6D0C3] hover:text-[#F4F0E6] hover:bg-[#64765A]/30'
@@ -82,64 +80,17 @@ export const Navigation: React.FC = () => {
                 </Link>
               );
             })}
-
-            {/* All Modules Dropdown Button */}
-            <div className="relative">
-              <button
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                className={`px-3.5 py-1 text-[13px] font-sans rounded-full transition-all flex items-center gap-1.5 tracking-wide ${
-                  dropdownOpen ? 'bg-[#AD765B] text-[#F4F0E6] font-semibold' : 'text-[#D6D0C3] hover:text-[#F4F0E6] hover:bg-[#64765A]/30'
-                }`}
-              >
-                <BookOpen className="w-3.5 h-3.5" />
-                <span>Всі розділи (12)</span>
-                <ChevronDown className="w-3 h-3" />
-              </button>
-
-              {/* Mega-menu dropdown */}
-              {dropdownOpen && (
-                <div className="absolute right-0 top-full mt-2 w-80 bg-[#182C24] border border-[#A7B39A]/40 rounded-2xl shadow-2xl p-2 z-50 animate-fade-in backdrop-blur-xl max-h-[80vh] overflow-y-auto">
-                  <div className="text-[10px] font-mono uppercase tracking-wider text-[#A7B39A] px-3 py-2 border-b border-white/10">
-                    Навігація по розділах курсу
-                  </div>
-                  <div className="space-y-1 py-1">
-                    {COURSE_MODULES.map(m => (
-                      <Link
-                        key={m.id}
-                        to={m.path}
-                        onClick={() => setDropdownOpen(false)}
-                        className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs font-mono transition-colors ${
-                          location.pathname === m.path
-                            ? 'bg-[#AD765B] text-[#F4F0E6] font-semibold'
-                            : 'text-[#D6D0C3] hover:bg-white/10 hover:text-white'
-                        }`}
-                      >
-                        <div className="flex items-center gap-2">
-                          <span className="text-[10px] opacity-70 w-4">{m.number}</span>
-                          <span className="truncate">{m.title}</span>
-                        </div>
-                        {m.badge && (
-                          <span className="text-[9px] bg-black/30 px-1.5 py-0.5 rounded text-[#A7B39A]">
-                            {m.badge}
-                          </span>
-                        )}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
           </nav>
 
           {/* Right Action Icons: 3D Studio CTA + Ambient Audio Toggle + Mobile Menu */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Direct Link to Upgraded 3D Studio */}
+            {/* Direct Link to Studio */}
             <Link
-              to="/landscape-builder"
+              to="/studio"
               className="px-3.5 py-1.5 bg-[#AD765B] hover:bg-[#c4876b] text-[#F4F0E6] rounded-full text-xs font-mono font-semibold flex items-center gap-1.5 shadow-sm transition-all"
             >
               <Sparkles className="w-3.5 h-3.5 text-[#F4F0E6]" />
-              <span className="hidden sm:inline">3D Студія саду</span>
+              <span className="hidden sm:inline">3D Студія</span>
               <span className="sm:hidden">3D</span>
             </Link>
 
@@ -173,27 +124,30 @@ export const Navigation: React.FC = () => {
         <div className="fixed inset-x-0 top-16 bottom-0 z-30 h-[calc(100dvh-4rem)] bg-[#182C24]/98 backdrop-blur-xl lg:hidden px-4 py-6 overflow-y-auto overscroll-contain border-t border-[#A7B39A]/30 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between text-xs font-mono uppercase tracking-widest text-[#A7B39A] mb-4 pb-2 border-b border-white/10">
-              <span>12 Розділів навчального курсу</span>
+              <span>Архітектурні Розділи</span>
               <span className="text-[#AD765B]">TERRA ARCHIVE</span>
             </div>
-            <div className="space-y-1.5 pb-6">
+            <div className="space-y-2 pb-6">
               {COURSE_MODULES.map(m => (
                 <Link
                   key={m.id}
                   to={m.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center justify-between p-3.5 rounded-xl text-sm font-sans transition-colors ${
+                  className={`flex items-center justify-between p-4 rounded-2xl text-sm font-sans transition-colors ${
                     location.pathname === m.path
                       ? 'bg-[#AD765B] text-[#F4F0E6] font-semibold shadow-md'
-                      : 'text-[#D6D0C3] hover:bg-white/5 hover:text-white'
+                      : 'bg-white/5 text-[#D6D0C3] hover:bg-white/10 hover:text-white'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono text-[#A7B39A] font-bold">Розділ {m.number}</span>
-                    <span className="font-serif text-base">{m.title}</span>
+                    <span className="text-xs font-mono text-[#A7B39A] font-bold">0{m.number}</span>
+                    <div>
+                      <span className="font-serif text-base block text-[#F4F0E6]">{m.title}</span>
+                      <span className="text-xs text-[#A7B39A] block mt-0.5">{m.description}</span>
+                    </div>
                   </div>
                   {m.badge && (
-                    <span className="text-[10px] font-mono bg-black/40 px-2 py-0.5 rounded text-[#A7B39A]">
+                    <span className="text-[10px] font-mono bg-black/40 px-2 py-0.5 rounded text-[#A7B39A] shrink-0 ml-2">
                       {m.badge}
                     </span>
                   )}
